@@ -2,21 +2,7 @@
     <!-- Main Container -->
     <main id="main-container">
             <!-- Hero -->
-            <div class="bg-body-dark">
-                <div class="content content-full">
-                    <div class="d-flex flex-column flex-sm-row justify-content-sm-between align-items-sm-center">
-                        <h1 class="flex-grow-1 fs-3 fw-semibold my-2 my-sm-3"> Configuración General </h1>
-                        <nav class="flex-shrink-0 my-2 my-sm-0 ms-sm-3" aria-label="breadcrumb">
-                            <ol class="breadcrumb breadcrumb-alt">
-                                <li class="breadcrumb-item">
-                                    <a href="/">Inicio</a>
-                                </li>
-                                <li class="breadcrumb-item active" aria-current="page"> Configurar </li>
-                            </ol>
-                        </nav>
-                    </div>
-                </div>
-            </div>
+            <Hero :title="title" :page="page" />
             <!-- END Hero -->
             <!-- Page Content -->
             <div class="content">
@@ -64,36 +50,36 @@
                                         <div class="tab-content col-md-9">
                                             <div class="block-content tab-pane active" id="btabs-vertical-info-profile" role="tabpanel" aria-labelledby="btabs-vertical-info-profile-tab">
                                                 <h4 class="fw-semibold">Usuario y Contraseña</h4>
-                                                <form class="form form-vertical" id="form">
+                                                <form class="form form-vertical" @submit.prevent="handleSubmit('user')" id="form">
                                                     <div class="row push">
                                                         <div class="form-group col-md-12 mb-2">
                                                             <div class="form-group">
                                                                 <label class="form-label" for="device_old_user">Usuario Anterior</label>
-                                                                <input type="text" class="form-control" placeholder="Usuario Anterior" id="device_old_user">
+                                                                <input type="text" class="form-control" placeholder="Usuario Anterior" id="device_old_user" v-model.trim="user.device_old_user">
                                                             </div>
                                                         </div>
                                                         <div class="form-group col-md-12 mb-2">
                                                             <div class="form-group">
                                                                 <label class="form-label" for="device_old_password">Contraseña Anterior</label>
-                                                                <input type="password" class="form-control" placeholder="*****" id="device_old_password">
+                                                                <input type="password" class="form-control" placeholder="*****" id="device_old_password" v-model.trim="user.device_old_password">
                                                             </div>
                                                         </div>
                                                         <div class="form-group col-md-12 mb-2">
                                                             <div class="form-group">
                                                                 <label class="form-label" for="device_new_user">Nuevo Usuario</label>
-                                                                <input type="text" class="form-control" placeholder="Nuevo Usuario" id="device_new_user">
+                                                                <input type="text" class="form-control" placeholder="Nuevo Usuario" id="device_new_user" v-model.trim="user.device_new_user">
                                                             </div>
                                                         </div>
                                                         <div class="form-group col-md-12 mb-2">
                                                             <div class="form-group">
                                                                 <label class="form-label" for="device_new_password">Nueva Contraseña</label>
-                                                                <input type="password" class="form-control" placeholder="******" id="device_new_password">
+                                                                <input type="password" class="form-control" placeholder="******" id="device_new_password" v-model.trim="user.device_new_password">
                                                             </div>
                                                         </div>
                                                         <div class="form-group col-md-12 mb-3">
                                                             <div class="form-group">
                                                                 <label class="form-label" for="device_c_new_password">Confirmar nueva Contraseña</label>
-                                                                <input type="password" class="form-control" placeholder="******" id="device_c_new_password">
+                                                                <input type="password" class="form-control" placeholder="******" id="device_c_new_password" v-model.trim="user.device_c_new_password">
                                                             </div>
                                                         </div>
                                                         <div class="mb-2">
@@ -109,18 +95,18 @@
                                             </div>
                                             <div class="block-content tab-pane" id="btabs-vertical-info-settings" role="tabpanel" aria-labelledby="btabs-vertical-info-settings-tab">
                                                 <h4 class="fw-semibold">Dispositivo</h4>
-                                                <form class="form form-vertical">
+                                                <form class="form form-vertical" @submit.prevent="handleSubmit('device')">
                                                     <div class="row push">
                                                         <div class="form-group col-md-12 mb-2">
                                                             <div class="form-group">
                                                                 <label class="form-label" for="device_serial">Número de Serie</label>
-                                                                <input type="text" class="form-control" placeholder="9B1C5210CE0C3D" id="device_serial" readonly>
+                                                                <input type="text" class="form-control" placeholder="9B1C5210CE0C3D" id="device_serial" v-model.trim="device.device_serial" readonly>
                                                             </div>
                                                         </div>
                                                         <div class="form-group col-md-12 mb-3">
                                                             <div class="form-group">
                                                                 <label class="form-label" for="device_id">Identificación del Dispositivo</label>
-                                                                <input type="text" class="form-control" placeholder="adminvue32" id="device_id">
+                                                                <input type="text" class="form-control" placeholder="adminvue32" id="device_id" v-model.trim="device.device_id" >
                                                             </div>
                                                         </div>
                                                         <div class="mb-2">
@@ -131,7 +117,7 @@
                                                     </div>
                                                 </form>
                                                 <p class='my-2'>El identificador del dispositivo se usa para el <span class="fst-normal">mDNS Url.</span>
-                                                    <br><span class="fw-bold">Ejemplo:</span> <code>http://adminvue32.local</code></p>
+                                                    <br><span class="fw-bold">Ejemplo:</span> <code>http://{{device.device_id}}.local</code></p>
                                             </div>
                                             <div class="block-content tab-pane" id="btabs-vertical-info-firmware" role="tabpanel" aria-labelledby="btabs-vertical-info-firmware-tab">
                                                 <div class="content-heading">Firmware y FileSystem</div>
@@ -177,20 +163,20 @@
                                             <h6>Descargar archivo de configuración (<code>settings.json</code>)</h6>
                                             <p class="text-muted">Use este <code>Botón</code> para exportar las configuraciones actuales.</p>
                                             <div class="buttons">
-                                                <button class="btn icon btn-secondary"><i class="fa fa-file-download"> </i> Exportar</button>
+                                                <button @click="downloadSettings" class="btn icon btn-secondary"><i class="fa fa-file-download"> </i> Descargar</button>
                                             </div>
                                             <hr>
                                             <h6>Restablecer configuraciones predeterminada</h6>
-                                            <p class="text-muted">Use este <code>Botón</code> para restablecer a los parámetros de fábrica.</p>
+                                            <p class="text-muted">Use el siguiente botón para restablecer a los parámetros de fábrica.</p>
                                             <div class="buttons">
                                                 <button class="btn icon btn-warning"><i class="fa fa-redo fa-spin"></i> Restablecer</button>
                                             </div>
                                             <hr>
-                                            <h6>Subir el archivo de configuración (<code>settings.json</code>)</h6>
+                                            <h6>Importar el archivo de configuración (<code>settings.json</code>)</h6>
                                             <div class="input-group mb-3">
                                                 <label class="input-group-text" for="inputFileAdd"><i class="fa fa-file-upload"></i></label>
-                                                <input type="file" accept="text/json" class="form-control" id="inputFileAdd">
-                                                <button class="btn btn-primary" type="button" id="btnFileAdd">Importar</button>
+                                                <input type="file" accept="application/json" class="form-control" id="inputFileAdd">
+                                                <button @click="uploadSettings" class="btn btn-primary" type="button" id="btnFileAdd">Subir</button>
                                             </div>
                                         </div>
                                     </div>
@@ -199,14 +185,37 @@
                         </div>
                     </div>
                     <!-- END Your Block -->
+                    
                 </div>
+                
             </div>
             <!-- END Page Content -->
         </main>
         <!-- END Main Container -->
 </template>
 <script>
+import Hero from "@/components/common/Hero.vue"
+import useSettings from "@/composables/useSettings"
+
 export default {
-    name: "Settings"
+    components: {Hero},
+    name: "Settings", //nombre del componente
+    setup(){
+        const title = "Configuración General"
+        const page = "Configurar"
+
+        const {device, user, handleSubmit, clear, downloadSettings, uploadSettings} = useSettings() //de donde vienen
+
+        return{
+            title,
+            page,
+            device,
+            user,
+            handleSubmit,
+            clear,
+            downloadSettings,
+            uploadSettings
+        }
+    }
 }
 </script>

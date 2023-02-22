@@ -211,7 +211,7 @@
         <!-- END Page Content -->
     </main>
     <!-- END Main Container -->
-    {{ wifi }}
+    <!--{{ wifi }}-->
 </template>
 <script>
 import Hero from "@/components/common/Hero.vue";

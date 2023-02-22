@@ -1,4 +1,4 @@
-import { ref, onMounted, inject, computed } from 'vue'
+import { ref, onMounted, computed } from 'vue'
 
 import useApp from './useApp'
 
@@ -10,7 +10,8 @@ const useWifi = (props, {emit})=>{
         ToastMsgWarning,
         ToastMsgInfo,
         ToastMsgSuccess,
-        swal
+        swal,
+        host
     } = useApp()
 
      //Objeto del WIFI en el Settings   
@@ -60,7 +61,7 @@ const useWifi = (props, {emit})=>{
         })
     }
 
-    const host = inject("host")
+    
     const get_wifi_settings = async() => {
         const url = `http://${host}/api/wifi`
         await fetch(url, {
@@ -80,34 +81,35 @@ const useWifi = (props, {emit})=>{
                 }
             })
             .catch((error) => {
-                //console.log(error)
+                
                 ToastMsgError(`Error : ${error}`, "wifi", 5000)
             })
     }
-    const post_wifi_settings = async() => {
+    const post_wifi_settings = () => {
         const url = `http://${host}/api/wifi`
-        await fetch(url, {
-                method: 'POST',
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(wifi.value)
-            })
+        const myHeaders = new Headers()
+        myHeaders.append(
+            'Accept', 'application/json',
+            'Content-Type', 'application/json'
+        )
+
+        const requestOptions = {
+            method: 'POST',
+            headers: myHeaders,
+            body: JSON.stringify(wifi.value)
+        }
+         fetch(url, requestOptions)
             .then((res) => res.json())
             .then((datos) => {
                 if (datos.save) {
-                    //console.log("Guardado: " + datos.save)
+                    
                     ToastMsgSuccess(`"Configuración WiFi guardada correctamente"`, "wifi", 5000)
                     get_wifi_settings()
-                }/*else{
-                    //console.log("Error en el guardado de datos")
-                    ToastMsgError(`Error en el guardado de datos `, "wifi", 5000)
-                }*/
+                }
             })
             .catch((error) => {
                 ToastMsgError(`Error : ${error}`, "wifi", 5000)
-                //console.log(error)
+                
             })
     }
 
@@ -222,9 +224,9 @@ const useWifi = (props, { emit }) => {
 
     
 
-    
-
-    
+    https://bobbyhadz.com/blog/javascript-typeerror-failed-to-fetch-cors
+    https://www.ionos.es/digitalguide/paginas-web/desarrollo-web/cross-origin-resource-sharing/
+    https://developer.mozilla.org/es/docs/Web/HTTP/CORS
     */
     
     return {

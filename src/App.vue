@@ -38,9 +38,7 @@ export default {
       loadScript("../../js/dashmix.app.min.js")
     })
 
-    const host = '192.168.1.164'
-
-    provide("host", host)
+    
 
     const {
       /*ToastMsg,

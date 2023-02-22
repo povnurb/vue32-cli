@@ -16,6 +16,7 @@ const useSettings = () => {
         command
     } = useApp()
 
+    //objetos
     const device = ref({
         device_serial: "",
         device_id: "",
@@ -48,6 +49,8 @@ const useSettings = () => {
             text: text,
             icon: icon,
             showCancelButton: true,
+            confirmButtonColor: '#41bb82',
+            cancelButtonColor: '#ff3030',
             confirmButtonText: 'Aceptar',
             cancelButtonText: 'Cancelar'
         }).then((result) => {
@@ -82,50 +85,58 @@ const useSettings = () => {
             })
     }
 
-    const post_device_settings = async() => {
+    const post_device_settings = () => {
         const url = `http://${host}/api/settings/id`;
-        await fetch(url, {
-                method: 'POST',
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(device.value)
-            }).then(res => res.json())
+        const myHeaders = new Headers()
+        myHeaders.append(
+            'Accept', 'application/json',
+            'Content-Type', 'application/json'
+        )
+        const requestOptions = {
+            method: 'POST',
+            headers: myHeaders,
+            body: JSON.stringify(device.value)
+        }
+        fetch(url, requestOptions)
+            .then(res => res.json())
             .then(datos => {
-                console.log(datos)
+                //console.log(datos)
                 if (datos.save) {
-                    ToastMsgSuccess(`"Configuración del Device_ID guardada correctamente"`, "cog", 5000)
+                    ToastMsgSuccess(`"Configuración del Device_ID guardada correctamente"`, "cog fa-spin", 5000)
                     get_device_settings()
                 } else {
-                    ToastMsgError(`${datos.msg}`, "cog", 5000)
+                    ToastMsgError(`${datos.msg}`, "cog fa-spin", 5000)
                 }
             })
             .catch((error) => {
-                ToastMsgError(`"Error al guardar los parámetros Device_ID: ${error}"`, "cog", 5000)
+                ToastMsgError(`"Error al guardar los parámetros Device_ID: ${error}"`, "cog fa-spin", 5000)
             })
     }
 
-    const post_user_settings = async() => {
+    const post_user_settings = () => {
         const url = `http://${host}/api/settings/user`;
-        await fetch(url, {
-                method: 'POST',
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(user.value)
-            }).then(res => res.json())
+        const myHeaders = new Headers()
+        myHeaders.append(
+            'Accept', 'application/json',
+            'Content-Type', 'application/json'
+        )
+        const requestOptions = {
+            method: 'POST',
+            headers: myHeaders,
+            body: JSON.stringify(user.value)
+        }
+        fetch(url, requestOptions)
+            .then(res => res.json())
             .then(datos => {
                 console.log(datos)
                 if (datos.save) {
                     ToastMsgSuccess(`${datos.msg}`, "user-circle", 5000)
                 } else {
-                    ToastMsgError(`${datos.msg}`, "user-circle", 5000)
+                    ToastMsgError(`${datos.msg}`, "user-circle fa-spin", 5000)
                 }
             })
             .catch((error) => {
-                ToastMsgError(`"Error al guardar los parámetros del Usuario: ${error}"`, "user-circle", 5000)
+                ToastMsgError(`"Error al guardar los parámetros del Usuario: ${error}"`, "user-circle fa-spin", 5000)
             })
     }
 
@@ -250,7 +261,7 @@ const useSettings = () => {
     const percent = computed(() => {
         return `width: ${progress.value.msg}%;`
     })
-
+    //para exportar las funciones y utilizarlas en otros archivos
     return {
         device,
         user,

@@ -35,6 +35,8 @@ const useCloud = () => {
         get_cloud_settings()
     })
 
+    
+
     const handleSubmit = (form) => {
         if (form == 'connection') {
             showAlertConfirm("Guardar Cloud", "¿Está seguro de guardar los parámetros de la Conexión del Cloud?", "question", "connection")
@@ -49,6 +51,8 @@ const useCloud = () => {
             text: `${text}`,
             icon: `${icon}`,
             showCancelButton: true,
+            confirmButtonColor: '#41bb82',
+            cancelButtonColor: '#ff3030',
             confirmButtonText: 'Aceptar',
             cancelButtonText: 'Cancelar',
         }).then((result) => {
@@ -57,7 +61,7 @@ const useCloud = () => {
             }
         })
     }
-
+    
     const get_cloud_settings = async() => {
         const url = `http://${host}/api/cloud`
         await fetch(url, {
@@ -77,16 +81,21 @@ const useCloud = () => {
             })
     }
 
-    const post_cloud_settings = async(cloud_url) => {
+    const post_cloud_settings = (cloud_url) => {
         const url = `http://${host}/api/cloud/${cloud_url}`
-        await fetch(url, {
-                method: 'POST',
-                headers: {
-                    'Accept': 'application/json',
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(data.value)
-            }).then(res => res.json())
+        const myHeaders = new Headers()
+        myHeaders.append(
+            'Accept', 'application/json',
+            'Content-Type', 'application/json'
+        )
+        const requestOptions = {
+            method: 'POST',
+            headers: myHeaders,
+            body: JSON.stringify(data.value)
+        }
+
+        fetch(url, requestOptions)
+            .then(res => res.json())
             .then(datos => {
                 if (datos.save) {
                     ToastMsgSuccess(`"Configuración ${cloud_url == "connection" ? "de la Conexión" : "de los Datos"} Cloud guardada correctamente"`, "cloud", 5000)

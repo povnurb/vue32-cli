@@ -1,14 +1,17 @@
-import { inject, ref } from 'vue'
+import { inject, provide, ref } from 'vue'
 import { useToast } from 'vue-toastification'
-import { useRoute } from 'vue-router'
+/*import { useRoute } from 'vue-router'
 
 const progress = ref({ "type": "update", "msg": "0" })
 const index_update = ref({})
-const mqtt_activity = ref({})
+const mqtt_activity = ref({})*/
 
 const useApp = () => {
 
     //const host = '192.168.20.150'
+    const host = '192.168.1.164'
+
+    provide("host", host)
 
     const toast = useToast();
 
@@ -160,9 +163,10 @@ const useApp = () => {
         ToastMsgWarning,
         ToastMsgInfo,
         ToastMsgSuccess,
+        host,
         swal
         /*
-        host,
+        
         createWebSockets,
         progress,
         reloadPage,
