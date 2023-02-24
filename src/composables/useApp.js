@@ -49,15 +49,15 @@ const useApp = () => {
             icon: `fas fa-${icon}`,
         })
     }
-    /*
+    
     const wsURL = `ws://${host}/ws`
     const reConnect = ref(false)
-    const tt = ref(0)
-    const ws = ref(new WebSocket(wsURL, ['arduino']))
+    let tt //= ref(0)
+    let ws //= ref(new WebSocket(wsURL, ['arduino']))
 
     const createWebSockets = () => {
         try {
-            ws.value = new WebSocket(wsURL, ['arduino'])
+            ws = new WebSocket(wsURL, ['arduino'])
             initWS()
         } catch (e) {
             reconnect()
@@ -65,18 +65,21 @@ const useApp = () => {
     }
 
     const initWS = () => {
-        ws.value.onclose = () => {
+        ws.onclose = () => {
             console.log('WS-Close')
             reconnect()
         }
-        ws.value.onerror = (e) => {
+        ws.onerror = (e) => {
             console.log('WS-Error', e)
             reconnect()
         }
-        ws.value.onopen = () => {
+        ws.onopen = () => {
             console.log('WS-Open')
         }
-        ws.value.onmessage = (m) => {
+        ws.onmessage = (m) => {
+            let resp = JSON.parse(m.data)
+            console.log(resp)
+            /*
             const pathname = route.path
             const resp = JSON.parse(m.data)
             if (Object.keys(resp).length > 0 && resp.type == "update" && pathname == "/settings") {
@@ -119,22 +122,22 @@ const useApp = () => {
                 index_update.value = resp
             } else if (Object.keys(resp).length > 0 && resp.type == "mqtt" && pathname == "/") {
                 mqtt_activity.value = resp
-            }
+            }*/
         }
     }
-
+    
     const reconnect = () => {
         if (reConnect.value) {
             return
         }
         reConnect.value = true
-        tt.value && window.clearTimeout(tt.value)
-        tt.value = window.setTimeout(() => {
+        tt && window.clearTimeout(tt)
+        tt = window.setTimeout(() => {
             createWebSockets()
             reConnect.value = false
         }, 4000)
     }
-
+    /*
     const reloadPage = (url, time) => {
         const timeOut = setTimeout(() => {
             window.location = `/${url}`
@@ -164,10 +167,9 @@ const useApp = () => {
         ToastMsgInfo,
         ToastMsgSuccess,
         host,
-        swal
+        swal,
+        createWebSockets
         /*
-        
-        createWebSockets,
         progress,
         reloadPage,
         command,

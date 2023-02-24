@@ -127,7 +127,7 @@
                                                         <div class="input-group mb-3">
                                                             <label class="input-group-text" for="inputFileFirmware"><i class="fa fa-upload"></i></label>
                                                             <input type="file" accept="application/octet-stream" class="form-control" id="inputFileFirmware">
-                                                            <button class="btn btn-primary" type="button" id="btnFileFirmware">Importar</button>
+                                                            <button @click="uploadFirmware" class="btn btn-primary" type="button" id="btnFileFirmware">Importar</button>
                                                         </div>
                                                         <p class="text-muted mt-3">Nota: Si el nombre de archivo incluye spiffs, actualiza la partición del FileSystem.</p>
                                                         <h2 class="content-heading mt-3">Cargando...</h2>
@@ -204,7 +204,7 @@ export default {
         const title = "Configuración General"
         const page = "Configurar"
 
-        const {device, user, handleSubmit, clear, downloadSettings, uploadSettings} = useSettings() //de donde vienen
+        const {device, user, handleSubmit, clear, downloadSettings, uploadSettings, uploadFirmware} = useSettings() //de donde vienen
 
         return{
             title,
@@ -214,7 +214,8 @@ export default {
             handleSubmit,
             clear,
             downloadSettings,
-            uploadSettings
+            uploadSettings,
+            uploadFirmware
         }
     }
 }

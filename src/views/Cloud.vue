@@ -78,6 +78,7 @@
                                             <button type="submit" class="btn btn-alt-success me-1">
                                                 <i class="fa fa-fw fa-save opacity-50 me-1"></i> Guardar
                                             </button>
+                                            <code>Nota: Para que surta efecto estos cambios es necesario reiniciar el dispositivo.</code>
                                         </div>
                                     </div>
                                 </form>
@@ -121,6 +122,7 @@
                                             <button type="submit" class="btn btn-alt-success me-1">
                                                 <i class="fa fa-fw fa-save opacity-50 me-1"></i> Guardar
                                             </button>
+                                            
                                         </div>
                                     </div>
                                 </form>

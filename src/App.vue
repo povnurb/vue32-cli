@@ -36,24 +36,17 @@ export default {
   setup(){
     onMounted(()=>{
       loadScript("../../js/dashmix.app.min.js")
+      createWebSockets()
     })
 
     
 
     const {
-      /*ToastMsg,
-      ToastMsgError,
-      ToasMsgWarning,
-      ToasMsgInfo,
-      ToasMsgSucces*/
+      createWebSockets
     } = useApp()
 
     return{
-      /*ToastMsg,
-      ToastMsgError,
-      ToasMsgWarning,
-      ToasMsgInfo,
-      ToasMsgSucces*/
+      
     }
   }
 }
