@@ -130,10 +130,12 @@
                                                             <button @click="uploadFirmware" class="btn btn-primary" type="button" id="btnFileFirmware">Importar</button>
                                                         </div>
                                                         <p class="text-muted mt-3">Nota: Si el nombre de archivo incluye spiffs, actualiza la partición del FileSystem.</p>
-                                                        <h2 class="content-heading mt-3">Cargando...</h2>
-                                                        <div class="progress push mt-3">
-                                                            <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" style="10" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
-                                                                <span class="fs-sm fw-semibold">10%</span>
+                                                        <div v-if="loading">
+                                                            <h2 class="content-heading mt-3">Cargando...</h2>
+                                                            <div class="progress push mt-3">
+                                                                <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" :style="percent" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100">
+                                                                    <span class="fs-sm fw-semibold">{{progress.msg}}%</span>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -190,6 +192,7 @@
                 
             </div>
             <!-- END Page Content -->
+            
         </main>
         <!-- END Main Container -->
 </template>
@@ -200,11 +203,25 @@ import useSettings from "@/composables/useSettings"
 export default {
     components: {Hero},
     name: "Settings", //nombre del componente
-    setup(){
+    props: {
+        progress: {}
+    },
+    setup(props){
         const title = "Configuración General"
         const page = "Configurar"
 
-        const {device, user, handleSubmit, clear, downloadSettings, uploadSettings, uploadFirmware} = useSettings() //de donde vienen
+        const {
+            device, 
+            user, 
+            handleSubmit, 
+            clear, 
+            downloadSettings, 
+            uploadSettings, 
+            uploadFirmware, 
+            loading, 
+            progress,
+            percent
+        } = useSettings(props) //de donde vienen
 
         return{
             title,
@@ -215,7 +232,10 @@ export default {
             clear,
             downloadSettings,
             uploadSettings,
-            uploadFirmware
+            uploadFirmware,
+            loading,
+            progress,
+            percent
         }
     }
 }

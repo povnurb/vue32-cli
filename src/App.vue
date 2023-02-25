@@ -8,7 +8,7 @@
     <Header/>
     <!--End Header-->
     <!--Main Container-->
-    <router-view/>
+    <router-view />
     <!--End Main Container-->
     <!--Footer-->
     <Footer/>
@@ -42,11 +42,10 @@ export default {
     
 
     const {
-      createWebSockets
+      createWebSockets,
     } = useApp()
 
     return{
-      
     }
   }
 }

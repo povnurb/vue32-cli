@@ -2,7 +2,7 @@ import { ref, onMounted, computed } from 'vue'
 import useApp from './useApp'
 
 
-const useSettings = () => {
+const useSettings = (props) => {
 
     const {
         ToastMsgError,

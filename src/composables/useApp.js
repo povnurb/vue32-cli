@@ -1,14 +1,14 @@
 import { inject, provide, ref } from 'vue'
 import { useToast } from 'vue-toastification'
-/*import { useRoute } from 'vue-router'
+import { useRoute } from 'vue-router'
 
 const progress = ref({ "type": "update", "msg": "0" })
+/*
 const index_update = ref({})
 const mqtt_activity = ref({})*/
 
 const useApp = () => {
 
-    //const host = '192.168.20.150'
     const host = '192.168.1.164'
 
     provide("host", host)
@@ -17,7 +17,7 @@ const useApp = () => {
 
     const swal = inject('$swal')
 
-    //const route = useRoute()
+    const route = useRoute()
 
     const ToastMsg = (msg, icon, time) => {
         toast(msg, {
@@ -77,10 +77,17 @@ const useApp = () => {
             console.log('WS-Open')
         }
         ws.onmessage = (m) => {
-            let resp = JSON.parse(m.data)
-            console.log(resp)
-            /*
             const pathname = route.path
+            let resp = JSON.parse(m.data)
+            
+            if (Object.keys(resp).length > 0 && resp.type == "update" && pathname == "/settings") {
+                progress.value = resp
+                
+            }else{
+
+            }
+            /*
+            
             const resp = JSON.parse(m.data)
             if (Object.keys(resp).length > 0 && resp.type == "update" && pathname == "/settings") {
                 progress.value = resp
@@ -137,14 +144,14 @@ const useApp = () => {
             reConnect.value = false
         }, 4000)
     }
-    /*
+    
     const reloadPage = (url, time) => {
         const timeOut = setTimeout(() => {
             window.location = `/${url}`
             clearTimeout(timeOut)
         }, time)
     }
-
+    /*
     const command = (cmd) => {
         ws.value.send(cmd)
     }
@@ -168,10 +175,12 @@ const useApp = () => {
         ToastMsgSuccess,
         host,
         swal,
-        createWebSockets
-        /*
         progress,
         reloadPage,
+        createWebSockets
+        /*
+        
+        
         command,
         route,
         index_update,
