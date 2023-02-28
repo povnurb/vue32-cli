@@ -64,7 +64,7 @@
                         </li>
                         <li class="nav-main-heading">Acciones</li>
                         <li class="nav-main-item">
-                            <a href="#" class="nav-main-link" style="cursor:pointer;">
+                            <a @click="showAlertConfirm('Reiniciar', '¿Está seguro de reiniciar el dispositivo?', 'question', 'restart')" class="nav-main-link" style="cursor:pointer;">
                                 <i class="nav-main-link-icon fa fa-redo-alt fa-spin"></i>
                                 <span class="nav-main-link-name">Reiniciar</span>
                             </a>
@@ -83,13 +83,35 @@
         </nav>
 </template>
 <script>
-import { useRoute } from 'vue-router'
+
 import { computed } from 'vue'
+import useApp from '@/composables/useApp'
 export default {
     name: "Sidebar",
     setup(){
+        const {swal, command, route} = useApp()
 
-        const route = useRoute()
+        const showAlertConfirm = (title, text, icon, funct) => {
+            swal({
+                title: title,
+                text: text,
+                icon: icon,
+                showCancelButton: true,
+                confirmButtonColor: '#41bb82',
+                cancelButtonColor: '#ff3030',
+                confirmButtonText: 'Aceptar',
+                cancelButtonText: 'Cancelar'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    if (funct == "restart") {
+                        command(funct)
+                    }else {
+                        
+                    }
+                }
+            })
+    }
+
         const index = computed(()=>{
             return route.path == '/'? 'nav-main-link active' : 'nav-main-link'
         })
@@ -111,7 +133,8 @@ export default {
             alarmas,
             wifi,
             cloud,
-            settings
+            settings,
+            showAlertConfirm
         }
 
     }

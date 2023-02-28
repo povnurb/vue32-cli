@@ -171,7 +171,7 @@
                                             <h6>Restablecer configuraciones predeterminada</h6>
                                             <p class="text-muted">Use el siguiente botón para restablecer a los parámetros de fábrica.</p>
                                             <div class="buttons">
-                                                <button class="btn icon btn-warning"><i class="fa fa-redo fa-spin"></i> Restablecer</button>
+                                                <button @click="showAlertConfirm('Restablecer','¿Está seguro de volver a las configuraciones de fábrica?','question','restore')" class="btn icon btn-warning"><i class="fa fa-redo fa-spin"></i> Restablecer</button>
                                             </div>
                                             <hr>
                                             <h6>Importar el archivo de configuración (<code>settings.json</code>)</h6>
@@ -220,8 +220,9 @@ export default {
             uploadFirmware, 
             loading, 
             progress,
-            percent
-        } = useSettings(props) //de donde vienen
+            percent,
+            showAlertConfirm
+        } = useSettings() //de donde vienen
 
         return{
             title,
@@ -235,7 +236,8 @@ export default {
             uploadFirmware,
             loading,
             progress,
-            percent
+            percent,
+            showAlertConfirm
         }
     }
 }

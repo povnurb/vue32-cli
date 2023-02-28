@@ -52,12 +52,12 @@ const useApp = () => {
     
     const wsURL = `ws://${host}/ws`
     const reConnect = ref(false)
-    let tt //= ref(0)
-    let ws //= ref(new WebSocket(wsURL, ['arduino']))
+    const tt = ref(0)
+    const ws = ref(new WebSocket(wsURL, ['arduino']))
 
     const createWebSockets = () => {
         try {
-            ws = new WebSocket(wsURL, ['arduino'])
+            ws.value = new WebSocket(wsURL, ['arduino'])
             initWS()
         } catch (e) {
             reconnect()
@@ -65,26 +65,63 @@ const useApp = () => {
     }
 
     const initWS = () => {
-        ws.onclose = () => {
+        ws.value.onclose = () => {
             console.log('WS-Close')
             reconnect()
         }
-        ws.onerror = (e) => {
+        ws.value.onerror = (e) => {
             console.log('WS-Error', e)
             reconnect()
         }
-        ws.onopen = () => {
+        ws.value.onopen = () => {
             console.log('WS-Open')
         }
-        ws.onmessage = (m) => {
+        ws.value.onmessage = (m) => {
             const pathname = route.path
             let resp = JSON.parse(m.data)
-            
+            //console.log(resp)
             if (Object.keys(resp).length > 0 && resp.type == "update" && pathname == "/settings") {
                 progress.value = resp
                 
-            }else{
+            }else if (Object.keys(resp).length > 0 && resp.type == "info") {
+                console.log(resp)
+                ToastMsgSuccess(resp.msg, resp.icon, 5000)
 
+                const mostrarMensaje = true
+                const mensaje = "Botones del Mouse deshabilitados mientras se reinicia el dispositivo"
+
+                const noClick = () => {
+                    if (mostrarMensaje) {
+                        alert(mensaje)
+                    }
+                }
+
+                const timerInterval = ref(0)
+
+                swal({
+                    title: 'Reiniciando',
+                    html: 'Reinicio en <b>10</b> segundos.',
+                    timer: 10000,
+                    timerProgressBar: true,
+                    didOpen: ()=>{
+                        document.onmousedown = noClick
+                        document.oncontextmenu = new Function("return false")
+                        swal.showLoading()
+                        const b = swal.getHtmlContainer().querySelector('b')
+                        timerInterval.value = setInterval(() => {
+                            b.textContent = Math.ceil(swal.getTimerLeft() / 1000);
+                        }, 1000)
+                    },
+                    willClose: ()=>{
+                        clearInterval(timerInterval.value)
+                    }
+                }).then((result)=>{
+                    if (result.dismiss === swal.DismissReason.timer) {
+                        document.onmousedown = new Function("return true")
+                        document.oncontextmenu = new Function("return true")
+                        reloadPage("", 1000)
+                    }
+                })
             }
             /*
             
@@ -92,7 +129,7 @@ const useApp = () => {
             if (Object.keys(resp).length > 0 && resp.type == "update" && pathname == "/settings") {
                 progress.value = resp
             } else if (Object.keys(resp).length > 0 && resp.type == "info") {
-                ToastMsgSuccess(resp.msg, resp.icon, 5000)
+                
                 const mostrarMensaje = true
                 const mensaje = "Botones del Mouse deshabilitados :-)"
                 const noClick = () => {
@@ -138,8 +175,8 @@ const useApp = () => {
             return
         }
         reConnect.value = true
-        tt && window.clearTimeout(tt)
-        tt = window.setTimeout(() => {
+        tt.value && window.clearTimeout(tt.value)
+        tt.value = window.setTimeout(() => {
             createWebSockets()
             reConnect.value = false
         }, 4000)
@@ -151,11 +188,11 @@ const useApp = () => {
             clearTimeout(timeOut)
         }, time)
     }
-    /*
+    
     const command = (cmd) => {
         ws.value.send(cmd)
     }
-
+    /*
     const deleteSession = () => {
         const url = `http://${host}/api/settings/logout`;
         fetch(url, { method: 'DELETE' }).then(function(res) {
@@ -177,12 +214,11 @@ const useApp = () => {
         swal,
         progress,
         reloadPage,
+        command,
+        route,
         createWebSockets
         /*
         
-        
-        command,
-        route,
         index_update,
         mqtt_activity,
         deleteSession,
