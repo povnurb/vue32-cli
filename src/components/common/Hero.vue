@@ -7,7 +7,7 @@
                 <nav class="flex-shrink-0 my-2 my-sm-0 ms-sm-3" aria-label="breadcrumb">
                     <ol class="breadcrumb breadcrumb-alt">
                         <li class="breadcrumb-item">
-                            <a href="/">Inicio</a>
+                            <router-link :to="{name: 'home'}">Inicio</router-link>
                         </li>
                         <li class="breadcrumb-item active" aria-current="page"> {{ page }} </li>
                     </ol>

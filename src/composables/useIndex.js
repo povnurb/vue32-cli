@@ -29,7 +29,7 @@ const useIndex = () => {
                 ToastMsgError(`"Error al cargar los datos ${error}"`, "cloud", 5000)
             })
     }
-
+    /*
     const wifi_status = computed(() => {
         return index_datos.value.wifi_online ? "Online" : "Offline"
     })
@@ -81,11 +81,11 @@ const useIndex = () => {
     watch(() => mqtt_activity.value,
         ({ msg }) => {
             index_datos.value["mqtt_activity"] = msg
-        })
+        })*/
 
     return {
         index_datos,
-        wifi_status,
+       /* wifi_status,
         mqtt_status,
         wifi_connection,
         mqtt_connection,
@@ -96,7 +96,7 @@ const useIndex = () => {
         wifi_class_03,
         mqtt_class_03,
         spiffs_percent_used,
-        ram_percent_free
+        ram_percent_free*/
     }
 
 }
