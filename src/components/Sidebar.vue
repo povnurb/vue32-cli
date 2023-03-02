@@ -70,7 +70,7 @@
                             </a>
                         </li>
                         <li class="nav-main-item">
-                            <a href="#" class="nav-main-link" style="cursor:pointer;">
+                            <a @click="showAlertConfirm('Sesion','¿Está seguro de cerrar la sesión?','question','logout')" class="nav-main-link" style="cursor:pointer;">
                                 <i class="nav-main-link-icon fa fa-sign-out-alt"></i>
                                 <span class="nav-main-link-name">Salir</span>
                             </a>
@@ -89,7 +89,7 @@ import useApp from '@/composables/useApp'
 export default {
     name: "Sidebar",
     setup(){
-        const {swal, command, route} = useApp()
+        const {swal, command, route, deleteSession} = useApp()
 
         const showAlertConfirm = (title, text, icon, funct) => {
             swal({
@@ -106,7 +106,7 @@ export default {
                     if (funct == "restart") {
                         command(funct)
                     }else {
-                        
+                        deleteSession()
                     }
                 }
             })

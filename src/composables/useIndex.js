@@ -29,7 +29,7 @@ const useIndex = () => {
                 ToastMsgError(`"Error al cargar los datos ${error}"`, "cloud", 5000)
             })
     }
-    /*
+    //aqui podria ser para activar las alarmas y luego pasarlas a alarmas.vue por el return
     const wifi_status = computed(() => {
         return index_datos.value.wifi_online ? "Online" : "Offline"
     })
@@ -41,7 +41,7 @@ const useIndex = () => {
     })
     const mqtt_connection = computed(() => {
         return index_datos.value["mqtt_online"] ? "CONECTADO" : "DESCONECTADO"
-    })
+    })//aqui cambia las clases de los span tomar como ejemplo para las alarmas
     const wifi_class_01 = computed(() => {
         return index_datos.value["wifi_online"] ? "badge bg-success" : "badge bg-danger"
     })
@@ -66,7 +66,7 @@ const useIndex = () => {
     const ram_percent_free = computed(() => {
         return index_datos.value["device_ram_available"] * 100 / index_datos.value["device_ram_size"]
     })
-
+    
     watch(() => index_update.value,
         ({ device_time_active, device_ram_available, mqtt_online, mqtt_server, wifi_online, wifi_rssi, wifi_signal }) => {
             index_datos.value["device_time_active"] = device_time_active
@@ -81,11 +81,11 @@ const useIndex = () => {
     watch(() => mqtt_activity.value,
         ({ msg }) => {
             index_datos.value["mqtt_activity"] = msg
-        })*/
+        })
 
     return {
         index_datos,
-       /* wifi_status,
+        wifi_status,
         mqtt_status,
         wifi_connection,
         mqtt_connection,
@@ -96,7 +96,7 @@ const useIndex = () => {
         wifi_class_03,
         mqtt_class_03,
         spiffs_percent_used,
-        ram_percent_free*/
+        ram_percent_free
     }
 
 }

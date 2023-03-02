@@ -3,9 +3,9 @@ import { useToast } from 'vue-toastification'
 import { useRoute } from 'vue-router'
 
 const progress = ref({ "type": "update", "msg": "0" })
-/*
+
 const index_update = ref({})
-const mqtt_activity = ref({})*/
+const mqtt_activity = ref({})
 
 const useApp = () => {
 
@@ -122,6 +122,10 @@ const useApp = () => {
                         reloadPage("", 1000)
                     }
                 })
+            }else if (Object.keys(resp).length > 0 && resp.type == "data" && pathname == "/") {
+                index_update.value = resp
+            }else if (Object.keys(resp).length > 0 && resp.type == "mqtt" && pathname == "/") {
+                mqtt_activity.value = resp
             }
             /*
             
@@ -192,7 +196,6 @@ const useApp = () => {
     const command = (cmd) => {
         ws.value.send(cmd)
     }
-    /*
     const deleteSession = () => {
         const url = `http://${host}/api/settings/logout`;
         fetch(url, { method: 'DELETE' }).then(function(res) {
@@ -202,7 +205,7 @@ const useApp = () => {
         }).catch(function(error) {
             console.log('Hubo un problema con la petición Fetch:' + error.message);
         });
-    }*/
+    }
 
     return {
         ToastMsg,
@@ -216,13 +219,10 @@ const useApp = () => {
         reloadPage,
         command,
         route,
-        createWebSockets
-        /*
-        
         index_update,
         mqtt_activity,
         deleteSession,
-        deleteSession*/
+        createWebSockets
     }
 
 }

@@ -25,7 +25,7 @@
                 </div>
             </div>
             <div class="col-md-6 ">
-                <div class="block block-rounded block-link-shadow bg-danger">
+                <div :class="mqtt_class_03">
                     <div class="block-content block-content-full d-flex align-items-center justify-content-between">
                         <div>
                             <i class="fa fa-2x fa-cloud text-success-light"></i>
@@ -35,21 +35,21 @@
                                 Cloud
                             </p>
                             <p class="text-white-75 mb-0">
-                               ({{ index_datos.mqtt_server ||"cannot connect to server"}}) - <label for=""> Offline</label>
+                               ({{ index_datos.mqtt_server ||"cannot connect to server"}}) - <label for=""> {{mqtt_status}}</label>
                             </p>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="col-md-6 ">
-                <div class="block block-rounded block-link-shadow bg-success">
+                <div :class="wifi_class_03">
                     <div class="block-content block-content-full d-flex align-items-center justify-content-between">
                         <div class="me-3">
                             <p class="text-white fs-3 fw-medium mb-0">
                                 WiFi
                             </p>
                             <p class="text-white-75 mb-0">
-                                ({{index_datos.wifi_ssid || "cannot connect to WiFi"}}) - <label for=""> Online</label>
+                                ({{index_datos.wifi_ssid || "cannot connect to WiFi"}}) - <label for=""> {{wifi_status}}</label>
                             </p>
                         </div>
                         <div>
@@ -82,10 +82,10 @@
                             <div class="col-4 border-end">
                                 <div class="py-3">
                                     <div class="item item-circle bg-body-light mx-auto">
-                                        <i class="fa fa-2x fa-memory text-primary"></i>
+                                        <i class="fa fa-memory text-primary"></i>
                                     </div>
                                     <p class="fs-3 fw-medium mt-3 mb-0">
-                                        60 %
+                                        {{ram_percent_free.toFixed(2)}} %
                                     </p>
                                     <p class="text-muted mb-0">
                                         RAM Disponible
@@ -132,7 +132,7 @@
                                         <i class="fa fa-2x fa-hdd text-white"></i>
                                     </div>
                                     <p class="text-white fs-3 fw-medium mt-3 mb-0">
-                                        82 %
+                                        {{spiffs_percent_used.toFixed(2)}} %
                                     </p>
                                     <p class="text-white-75 mb-0">
                                         SPIFFS Usada
@@ -177,7 +177,7 @@
             <div class="col-md-6 mb-3">
                 <div class="block block-rounded block-link-shadow h-100 mb-0">
                     <div class="block-content p-0 progress" style="height: 2px;">
-                        <div class="progress-bar bg-danger" role="progressbar" style="width: 100%;" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+                        <div :class="mqtt_class_02" role="progressbar" style="width: 100%;" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
                     <div class="block-content block-content-full">
                         <div>
@@ -189,7 +189,7 @@
                                     <tr>
                                         <td class="col-3">Estado MQTT:</td>
                                         <td class="col-6">
-                                            <span class="badge bg-danger">DESCONECTADO</span>
+                                            <span :class="mqtt_class_01">{{mqtt_connection}}</span>
                                         </td>
                                     </tr>
                                     <tr>
@@ -233,7 +233,7 @@
             <div class="col-md-6 mb-3">
                 <div class="block block-rounded block-link-shadow h-100 mb-0">
                     <div class="block-content p-0 progress" style="height: 2px;">
-                        <div class="progress-bar bg-success" role="progressbar" style="width: 100%;" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
+                        <div :class="wifi_class_02" role="progressbar" style="width: 100%;" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
                     </div>
                     <div class="block-content block-content-full">
                         <div>
@@ -245,7 +245,7 @@
                                     <tr>
                                         <td class="col-3">Estado WiFi:</td>
                                         <td class="col-6" style="margin-left: 20px;">
-                                            <span class="badge bg-success">CONECTADO</span>
+                                            <span :class="wifi_class_01">{{wifi_connection}}</span>
                                         </td>
                                     </tr>
                                     <tr>
@@ -371,7 +371,6 @@
             <!-- END Inalámbirco -->
         </div>
         <!-- END ROW Hardware & Software -->
-        {{ index_datos }}
     </div>
     <!-- END Page Content -->
   </main> 
@@ -390,13 +389,38 @@ export default {
             const title= "Información del Dispositivo"
             const page = ""
 
-            const {index_datos} = useIndex()
+            const {
+                index_datos,
+                wifi_status,
+                mqtt_status,
+                wifi_connection,
+                mqtt_connection,
+                wifi_class_01,
+                mqtt_class_01,
+                wifi_class_02,
+                mqtt_class_02,
+                wifi_class_03,
+                mqtt_class_03,
+                spiffs_percent_used,
+                ram_percent_free
+            } = useIndex()
 
         return{
             title,
             page,
-            index_datos
-
+            index_datos,
+            wifi_status,
+            mqtt_status,
+            wifi_connection,
+            mqtt_connection,
+            wifi_class_01,
+            mqtt_class_01,
+            wifi_class_02,
+            mqtt_class_02,
+            wifi_class_03,
+            mqtt_class_03,
+            spiffs_percent_used,
+            ram_percent_free
         }
     }
   

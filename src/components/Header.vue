@@ -28,7 +28,7 @@
                                     <i class="fa fa-users-cog me-1"></i> Configurar
                                 </router-link>
                                 <div role="separator" class="dropdown-divider"></div>
-                                <a class="dropdown-item" style="cursor:pointer;" href="#">
+                                <a @click="showAlertConfirm('Sesion','¿Está seguro de cerrar la sesión?','question','logout')" class="dropdown-item" style="cursor:pointer;">
                                     <i class="fa fa-sign-out-alt me-1"></i> Salir
                                 </a>
                             </div>
@@ -42,7 +42,34 @@
         </header>
 </template>
 <script>
-export default {
+import useApp from '@/composables/useApp';
 
+export default {
+    name: "Header",
+    setup(){
+        const{swal, deleteSession}=useApp()
+
+        const showAlertConfirm = (title, text, icon, funct) => {
+            swal({
+                title: title,
+                text: text,
+                icon: icon,
+                showCancelButton: true,
+                confirmButtonColor: '#41bb82',
+                cancelButtonColor: '#ff3030',
+                confirmButtonText: 'Aceptar',
+                cancelButtonText: 'Cancelar'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    if (funct == "logout") {
+                        deleteSession()
+                    }
+                }
+            })
+        }
+        return{
+            showAlertConfirm
+        }
+    }
 }
 </script>
