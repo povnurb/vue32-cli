@@ -81,7 +81,7 @@ const useSettings = () => {
                 }
             })
             .catch((error) => {
-                ToastMsgError(`Error : ${error}`, "wifi", 5000)
+                ToastMsgError(`Error : ${error}`, "cog", 5000)
             })
     }
 

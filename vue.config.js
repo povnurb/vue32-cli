@@ -1,6 +1,31 @@
 const { defineConfig } = require('@vue/cli-service')
 module.exports = defineConfig({
-  transpileDependencies: true
+  filenameHashing: false,
+  productionSourceMap: false,
+  configureWebpack:{
+    optimization:{
+      splitChunks: false
+    }
+  },
+  pluginOptions: {
+    compression:{
+      gzip: {
+        filename: '[file].gz[query]',
+        algorithm: 'gzip',
+        include: /\.(js|css|html|svg|json|ico|png)(\?.*)?$/i,
+        minRatio: 0.8,
+      }
+    }
+  },
+  //para cambiar el nombre del titulo de la pagina 
+  chainWebpack: config => {
+    config
+        .plugin('html')
+        .tap(args => {
+          args[0].title = 'COMCoatza | PTTI IGL'
+          return args
+        })
+  }
 })
 /*module.exports = {
   devServer: {

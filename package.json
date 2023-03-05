@@ -4,11 +4,13 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build"
+    "build": "vue-cli-service build",
+    "copy": "node build-dist.js"
   },
   "dependencies": {
     "core-js": "^3.8.3",
     "vue": "^3.2.13",
+    "vue-cli-plugin-compression": "^2.0.0",
     "vue-plugin-load-script": "^2.1.1",
     "vue-router": "^4.0.3",
     "vue-sweetalert2": "^5.0.5",

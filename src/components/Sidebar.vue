@@ -62,6 +62,12 @@
                                 <span class="nav-main-link-name">Configurar</span>
                                 </router-link>
                         </li>
+                        <li class="nav-main-item">
+                            <router-link :to="{ name: 'time'}" :class="time">
+                                <i class="nav-main-link-icon fa fa-clock"></i>
+                                <span class="nav-main-link-name">Fecha y Hora</span>
+                                </router-link>
+                        </li>
                         <li class="nav-main-heading">Acciones</li>
                         <li class="nav-main-item">
                             <a @click="showAlertConfirm('Reiniciar', '¿Está seguro de reiniciar el dispositivo?', 'question', 'restart')" class="nav-main-link" style="cursor:pointer;">
@@ -127,6 +133,9 @@ export default {
         const settings = computed(()=>{
             return route.path == '/settings'? 'nav-main-link active' : 'nav-main-link'
         })
+        const time = computed(()=>{
+            return route.path == '/time'? 'nav-main-link active' : 'nav-main-link'
+        })
 
         return {
             index,
@@ -134,6 +143,7 @@ export default {
             wifi,
             cloud,
             settings,
+            time,
             showAlertConfirm
         }
 

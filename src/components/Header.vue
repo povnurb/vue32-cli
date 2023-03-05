@@ -12,6 +12,12 @@
                     <!-- END Toggle Sidebar -->
                 </div>
                 <!-- END Left Section -->
+                <!--Time Nuevo-->
+                <div class="text-center">
+                    <div class="fw-semibold"><i class="fa fa-clock me-1"></i>{{time_update}}</div>
+                    <div class="text-gray-lighter"><small>Fecha y Hora del Sistema</small></div>
+                </div>
+
                 <!-- Right Section -->
                 <div>
                     <!-- User Dropdown -->
@@ -47,7 +53,7 @@ import useApp from '@/composables/useApp';
 export default {
     name: "Header",
     setup(){
-        const{swal, deleteSession}=useApp()
+        const{swal, deleteSession, time_update}=useApp()
 
         const showAlertConfirm = (title, text, icon, funct) => {
             swal({
@@ -68,7 +74,8 @@ export default {
             })
         }
         return{
-            showAlertConfirm
+            showAlertConfirm,
+            time_update
         }
     }
 }

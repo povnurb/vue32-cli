@@ -28,6 +28,11 @@ const routes = [
     component: () => import(/* webpackChunkName: "settings" */ '@/views/Settings.vue')
   },
   {
+    path: '/time',
+    name: 'time',
+    component: () => import(/* webpackChunkName: "time" */ '@/views/Time.vue')
+  },
+  {
     path: '/:pathMatch(.*)*',
     name: 'page404',
     component: () => import(/* webpackChunkName: "page404" */ '@/views/Page404.vue')

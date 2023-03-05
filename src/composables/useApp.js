@@ -6,11 +6,20 @@ const progress = ref({ "type": "update", "msg": "0" })
 
 const index_update = ref({})
 const mqtt_activity = ref({})
+// Time y se puede usar en cualquier parte del proyecto
+const time_update = ref()
 
 const useApp = () => {
+    const getHost = ()=>{
+        if (window.location.hostname == "localhost") {
+            return "192.168.1.164" //modo desarrollo
+        } else {
+            return window.location.hostname //modo producion
+        }
+    }
 
-    const host = '192.168.1.164'
-
+    const host = getHost()   // '192.168.1.164'
+    //const host = '192.168.1.164'   // '192.168.1.164'
     provide("host", host)
 
     const toast = useToast();
@@ -126,7 +135,10 @@ const useApp = () => {
                 index_update.value = resp
             }else if (Object.keys(resp).length > 0 && resp.type == "mqtt" && pathname == "/") {
                 mqtt_activity.value = resp
+            }else if (Object.keys(resp).length > 0 && resp.type == "time") {
+                time_update.value = resp.msg
             }
+            // aqui faltaría una para alarmas
             /*
             
             const resp = JSON.parse(m.data)
@@ -221,6 +233,7 @@ const useApp = () => {
         route,
         index_update,
         mqtt_activity,
+        time_update,
         deleteSession,
         createWebSockets
     }
