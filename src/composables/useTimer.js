@@ -71,7 +71,7 @@ const userTimer = ()=>{
     //Guardar datos
     const post_time = () => {
         const url = `http://${host}/api/time`;
-        const myHeaders = new Headers()
+        const myHeaders = new Headers() //se copia
         myHeaders.append(
             'Accept', 'application/json',
             'Content-Type', 'application/json'
@@ -81,7 +81,7 @@ const userTimer = ()=>{
             headers: myHeaders,
             body: JSON.stringify(time.value)
         }
-        fetch(url, requestOptions)
+        fetch(url, requestOptions) //se copia
             .then(res => res.json())
             .then(datos => {
                 //console.log(datos)

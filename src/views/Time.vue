@@ -44,7 +44,7 @@
                                                     <option value="-9">(GMT-09:00) Alaska</option>        
                                                     <option value="-8">(GMT-08:00) Hora del Pacífico</option>            
                                                     <option value="-7">(GMT-07:00) Hora de las Montañas Rocosas (EE.UU. Y Canadá)</option>                
-                                                    <option value="-6">(GMT-06:00) Hora Central (EE.UU. y Canadá)</option>                    
+                                                    <option value="-6">(GMT-06:00) Hora Central (México, EE.UU. y Canadá)</option>                    
                                                     <option value="-5">(GMT-05:00) Hora del Este (EE.UU. y Canadá)</option>
                                                     <option value="-4.5">(GMT-04:30) Caracas</option>                            
                                                     <option value="-4">(GMT-04:00) Hora del Atlántico (Canadá)</option>                                
@@ -85,7 +85,7 @@
                                     <div class="mb-2 mt-1">
                                         <button type="submit" class="btn btn-alt-success me-1">
                                             <i class="fa fa-fw fa-save opacity-50 me-1"></i> Guardar
-                                        </button>
+                                        </button><code>Nota: Actualizar página para ver cambios en la fecha y hora.</code>
                                     </div>
                                 </div>
                             </form>

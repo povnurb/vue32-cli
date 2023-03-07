@@ -33,6 +33,11 @@ const routes = [
     component: () => import(/* webpackChunkName: "time" */ '@/views/Time.vue')
   },
   {
+    path: '/action',
+    name: 'action',
+    component: () => import(/* webpackChunkName: "action" */ '@/views/Action.vue')
+  },
+  {
     path: '/:pathMatch(.*)*',
     name: 'page404',
     component: () => import(/* webpackChunkName: "page404" */ '@/views/Page404.vue')

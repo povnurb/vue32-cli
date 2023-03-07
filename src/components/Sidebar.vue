@@ -68,6 +68,12 @@
                                 <span class="nav-main-link-name">Fecha y Hora</span>
                                 </router-link>
                         </li>
+                        <li class="nav-main-item">
+                            <router-link :to="{ name: 'action'}" :class="action">
+                                <i class="nav-main-link-icon fa fa-gamepad"></i>
+                                <span class="nav-main-link-name">Controles</span>
+                                </router-link>
+                        </li>
                         <li class="nav-main-heading">Acciones</li>
                         <li class="nav-main-item">
                             <a @click="showAlertConfirm('Reiniciar', '¿Está seguro de reiniciar el dispositivo?', 'question', 'restart')" class="nav-main-link" style="cursor:pointer;">
@@ -136,7 +142,9 @@ export default {
         const time = computed(()=>{
             return route.path == '/time'? 'nav-main-link active' : 'nav-main-link'
         })
-
+        const action = computed(()=>{
+            return route.path == '/action'? 'nav-main-link active' : 'nav-main-link'
+        })
         return {
             index,
             alarmas,
@@ -144,6 +152,7 @@ export default {
             cloud,
             settings,
             time,
+            action,
             showAlertConfirm
         }
 

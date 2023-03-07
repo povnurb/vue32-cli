@@ -24,6 +24,8 @@ let time_js = ""
 let time_js_length = 0
 let wifi_js = ""
 let wifi_js_length = 0
+let action_js = ""
+let action_js_length = 0
     // Archivos CSS
 let app_css= ""
 let app_css_length = 0
@@ -68,7 +70,7 @@ promises.push(fs.readFileAsync("./dist/img/favicon.png.gz", 'hex')
         favicon_png_length = length
         return Promise.resolve()
     }))
-    promises.push(fs.readFileAsync("./dist/js/alarmas.js.gz", 'hex')
+promises.push(fs.readFileAsync("./dist/js/alarmas.js.gz", 'hex')
     .then((data) => {
         let { newData, length } = convertToHex(data)
         alarmas_js = newData
@@ -115,6 +117,13 @@ promises.push(fs.readFileAsync("./dist/js/time.js.gz", 'hex')
         let { newData, length } = convertToHex(data)
         time_js = newData
         time_js_length = length
+        return Promise.resolve()
+    }))
+promises.push(fs.readFileAsync("./dist/js/action.js.gz", 'hex')
+    .then((data) => {
+        let { newData, length } = convertToHex(data)
+        action_js = newData
+        action_js_length = length
         return Promise.resolve()
     }))
 promises.push(fs.readFileAsync("./dist/js/wifi.js.gz", 'hex')
@@ -190,6 +199,8 @@ finally(() => {
             const uint8_t settings_js[] PROGMEM = {${settings_js}};
             #define time_js_length ${time_js_length}
             const uint8_t time_js[] PROGMEM = {${time_js}};
+            #define action_js_length ${action_js_length}
+            const uint8_t action_js[] PROGMEM = {${action_js}};
             #define wifi_js_length ${wifi_js_length}
             const uint8_t wifi_js[] PROGMEM = {${wifi_js}};
             #define app_css_length ${app_css_length}
