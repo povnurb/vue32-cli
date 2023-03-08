@@ -144,6 +144,7 @@
                                         <button type="submit" class="btn btn-alt-success me-1">
                                             <i class="fa fa-fw fa-save opacity-50 me-1"></i> Guardar
                                         </button>
+                                        <code>Nota: Es nesecesario Reiniciar el dispositivo para aplicar cambios.</code>
                                     </div>
                                 </div>
                             </form>

@@ -164,11 +164,11 @@ export default {
                 if (datos.code == 1) {
                     action.value = datos.data
                 } else {
-                    ToastMsgError(`"Error no son datos válidos"`, "lightbulb", 5000)
+                    ToastMsgError(`"Error no son datos válidos"`, "check", 5000)
                 }
             })
             .catch((error) => {
-                ToastMsgError(`Error : ${error}`, "lightbulb", 5000)
+                ToastMsgError(`Error : ${error}`, "check", 5000)
             })
         }
 
