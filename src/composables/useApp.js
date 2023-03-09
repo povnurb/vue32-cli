@@ -62,7 +62,7 @@ const useApp = () => {
     const wsURL = `ws://${host}/ws`
     const reConnect = ref(false)
     const tt = ref(0)
-    const ws = ref(new WebSocket(wsURL, ['arduino']))
+    const ws = ref(new WebSocket(wsURL, ['arduino']))//-----------------
 
     const createWebSockets = () => {
         try {
@@ -88,12 +88,12 @@ const useApp = () => {
         ws.value.onmessage = (m) => {
             const pathname = route.path
             let resp = JSON.parse(m.data)
-            //console.log(resp)
+            //console.log(resp.type)
             if (Object.keys(resp).length > 0 && resp.type == "update" && pathname == "/settings") {
                 progress.value = resp
-                
+                console.log(resp.type)
             }else if (Object.keys(resp).length > 0 && resp.type == "info") {
-                console.log(resp)
+                console.log(resp.type)
                 ToastMsgSuccess(resp.msg, resp.icon, 5000)
 
                 const mostrarMensaje = true
@@ -206,6 +206,7 @@ const useApp = () => {
     }
     
     const command = (cmd) => {
+        console.log(ws)
         ws.value.send(cmd)
     }
     const deleteSession = () => {
