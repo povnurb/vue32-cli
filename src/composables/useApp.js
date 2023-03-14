@@ -8,6 +8,7 @@ const index_update = ref({})
 const mqtt_activity = ref({})
 // Time y se puede usar en cualquier parte del proyecto
 const time_update = ref()
+const indicAlarmws = ref({})
 
 const useApp = () => {
     const getHost = ()=>{
@@ -132,57 +133,16 @@ const useApp = () => {
                     }
                 })
             }else if (Object.keys(resp).length > 0 && resp.type == "data" && pathname == "/") {
-                index_update.value = resp
+                index_update.value = resp  //seguir este
+                
             }else if (Object.keys(resp).length > 0 && resp.type == "mqtt" && pathname == "/") {
                 mqtt_activity.value = resp
             }else if (Object.keys(resp).length > 0 && resp.type == "time") {
                 time_update.value = resp.msg
+            }else if (Object.keys(resp).length > 0 && resp.type == "alarmas" && pathname == "/alarmas") {
+                indicAlarmws.value = resp.msg
             }
-            // aqui faltaría una para alarmas
-            /*
             
-            const resp = JSON.parse(m.data)
-            if (Object.keys(resp).length > 0 && resp.type == "update" && pathname == "/settings") {
-                progress.value = resp
-            } else if (Object.keys(resp).length > 0 && resp.type == "info") {
-                
-                const mostrarMensaje = true
-                const mensaje = "Botones del Mouse deshabilitados :-)"
-                const noClick = () => {
-                    if (mostrarMensaje) {
-                        alert(mensaje)
-                    }
-                }
-                const timerInterval = ref(0)
-                swal({
-                    title: 'Reiniciando',
-                    html: 'Reinicio en <b>10</b> segundos.',
-                    timer: 10000,
-                    timerProgressBar: true,
-                    didOpen: () => {
-                        document.onmousedown = noClick
-                        document.oncontextmenu = new Function("return false")
-                        swal.showLoading()
-                        const b = swal.getHtmlContainer().querySelector('b')
-                        timerInterval.value = setInterval(() => {
-                            b.textContent = Math.ceil(swal.getTimerLeft() / 1000);
-                        }, 1000)
-                    },
-                    willClose: () => {
-                        clearInterval(timerInterval.value)
-                    }
-                }).then((result) => {
-                    if (result.dismiss === swal.DismissReason.timer) {
-                        document.onmousedown = new Function("return true")
-                        document.oncontextmenu = new Function("return true")
-                        reloadPage("", 1000)
-                    }
-                })
-            } else if (Object.keys(resp).length > 0 && resp.type == "data" && pathname == "/") {
-                index_update.value = resp
-            } else if (Object.keys(resp).length > 0 && resp.type == "mqtt" && pathname == "/") {
-                mqtt_activity.value = resp
-            }*/
         }
     }
     
@@ -195,7 +155,7 @@ const useApp = () => {
         tt.value = window.setTimeout(() => {
             createWebSockets()
             reConnect.value = false
-        }, 4000)
+        }, 3000)
     }
     
     const reloadPage = (url, time) => {
@@ -235,6 +195,7 @@ const useApp = () => {
         index_update,
         mqtt_activity,
         time_update,
+        indicAlarmws,
         deleteSession,
         createWebSockets
     }

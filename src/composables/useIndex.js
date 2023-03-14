@@ -84,6 +84,7 @@ const useIndex = () => {
         })
 
     return {
+        index_update,
         index_datos,
         wifi_status,
         mqtt_status,

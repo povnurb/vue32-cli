@@ -69,9 +69,9 @@
                         <fieldset class="form-group">
                             <label class="form-label" for="relay_pin">ESP32 PIN</label>
                             <select class="form-select" id="relay_pin" v-model.number="action.RELAY_PIN">
-                                <option value="33">GPIO 33</option>
-                                <option value="15">GPIO 15</option>
-                                <option value="32">GPIO 32</option>
+                                <option value="33">GPIO 33 RELAY</option>
+                                <option value="15">GPIO 15 ALARMAS</option>
+                                <option value="32">GPIO 32 ZUMBADOR</option>
                             </select>
                         </fieldset>
                     </div>                   

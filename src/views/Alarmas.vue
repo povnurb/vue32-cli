@@ -79,15 +79,14 @@
                             </div>
                             </div>
                             <div class="block-content">
-                            <form class="form form-vertical">
+                            <form class="form form-vertical" @submit.prevent="handleSubmit()">
                                 <div class="row push">
                                     <div class="col-md-6 col-12 mb-2">
                                         <div class="form-group">
                                             <label class="form-label" for="ALARM_NAME1">Nombre</label>
-                                            <input type="text" id="ALARM_NAME1" class="form-control" v-model="indicAlarm.ALARM_NAME1">
+                                            <input type="text" id="ALARM_NAME1" class="form-control" v-model.trim="indicAlarm.ALARM_NAME1">
                                         </div>
                                     </div>
-                                    
                                     <div class="form-group col-md-6 mb-2">
                                         <div class="form-group">
                                             <label class="form-label" for="ALARM_LOGICA1">Lógica del PIN D5</label>
@@ -122,32 +121,32 @@
                                 </button>
                             </div>
                             </div>
-                            <div class="block-content">
-                            <form class="form form-vertical">
-                                <div class="row push">
-                                    <div class="col-md-6 col-12 mb-2">
-                                        <div class="form-group">
-                                            <label class="form-label" for="ALARM_NAME2">Nombre</label>
-                                            <input type="text" id="ALARM_NAME2" class="form-control" v-model="indicAlarm.ALARM_NAME2">
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="form-group col-md-6 mb-2">
-                                        <div class="form-group">
-                                            <label class="form-label" for="ALARM_LOGICA2">Lógica del PIN D14</label>
-                                            <div class="form-check form-switch">
-                                                <input class="form-check-input" id="ALARM_LOGICA2" type="checkbox" v-model="indicAlarm.ALARM_LOGICA2" @click="logica2"/>
-                                                <label class="form-check-label">{{ alarm_text2 }}</label>
+                            <div class="block-content">          
+                                <form class="form form-vertical" @submit.prevent="handleSubmit()">
+                                    <div class="row push">
+                                        <div class="col-md-6 col-12 mb-2">
+                                            <div class="form-group">
+                                                <label class="form-label" for="ALARM_NAME2">Nombre</label>
+                                                <input type="text" id="ALARM_NAME2" class="form-control" v-model.trim="indicAlarm.ALARM_NAME2">
                                             </div>
                                         </div>
-                                    </div>                
-                                    <div class="mb-2 mt-2">
-                                        <button type="submit" class="btn btn-alt-success me-1">
-                                            <i class="fa fa-fw fa-save opacity-50 me-1"></i> Guardar
-                                        </button>
+                                        
+                                        <div class="form-group col-md-6 mb-2">
+                                            <div class="form-group">
+                                                <label class="form-label" for="ALARM_LOGICA2">Lógica del PIN D14</label>
+                                                <div class="form-check form-switch">
+                                                    <input class="form-check-input" id="ALARM_LOGICA2" type="checkbox" v-model="indicAlarm.ALARM_LOGICA2" @click="logica2"/>
+                                                    <label class="form-check-label">{{ alarm_text2 }}</label>
+                                                </div>
+                                            </div>
+                                        </div>                
+                                        <div class="mb-2 mt-2">
+                                            <button type="submit" class="btn btn-alt-success me-1">
+                                                <i class="fa fa-fw fa-save opacity-50 me-1"></i> Guardar
+                                            </button>
+                                        </div>
                                     </div>
-                                </div>
-                            </form>
+                                </form>
                             </div>
                         </div>
                         </div>
@@ -167,31 +166,31 @@
                             </div>
                             </div>
                             <div class="block-content">
-                            <form class="form form-vertical">
-                                <div class="row push">
-                                    <div class="col-md-6 col-12 mb-2">
-                                        <div class="form-group">
-                                            <label class="form-label" for="ALARM_NAME3">Nombre</label>
-                                            <input type="text" id="ALARM_NAME3" class="form-control" v-model="indicAlarm.ALARM_NAME3">
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="form-group col-md-6 mb-2">
-                                        <div class="form-group">
-                                            <label class="form-label" for="ALARM_LOGICA3">Lógica del PIN D16</label>
-                                            <div class="form-check form-switch">
-                                                <input class="form-check-input" id="ALARM_LOGICA3" type="checkbox" v-model="indicAlarm.ALARM_LOGICA3" @click="logica3"/>
-                                                <label class="form-check-label">{{ alarm_text3 }}</label>
+                                <form class="form form-vertical" @submit.prevent="handleSubmit()">
+                                    <div class="row push">
+                                        <div class="col-md-6 col-12 mb-2">
+                                            <div class="form-group">
+                                                <label class="form-label" for="ALARM_NAME3">Nombre</label>
+                                                <input type="text" id="ALARM_NAME3" class="form-control" v-model.trim="indicAlarm.ALARM_NAME3">
                                             </div>
                                         </div>
-                                    </div>                
-                                    <div class="mb-2 mt-2">
-                                        <button type="submit" class="btn btn-alt-success me-1">
-                                            <i class="fa fa-fw fa-save opacity-50 me-1"></i> Guardar
-                                        </button>
+                                        
+                                        <div class="form-group col-md-6 mb-2">
+                                            <div class="form-group">
+                                                <label class="form-label" for="ALARM_LOGICA3">Lógica del PIN D16</label>
+                                                <div class="form-check form-switch">
+                                                    <input class="form-check-input" id="ALARM_LOGICA3" type="checkbox" v-model="indicAlarm.ALARM_LOGICA3" @click="logica3"/>
+                                                    <label class="form-check-label">{{ alarm_text3 }}</label>
+                                                </div>
+                                            </div>
+                                        </div>                
+                                        <div class="mb-2 mt-2">
+                                            <button type="submit" class="btn btn-alt-success me-1">
+                                                <i class="fa fa-fw fa-save opacity-50 me-1"></i> Guardar
+                                            </button>
+                                        </div>
                                     </div>
-                                </div>
-                            </form>
+                                </form>
                             </div>
                         </div>
                         </div>
@@ -211,31 +210,31 @@
                             </div>
                             </div>
                             <div class="block-content">
-                            <form class="form form-vertical">
-                                <div class="row push">
-                                    <div class="col-md-6 col-12 mb-2">
-                                        <div class="form-group">
-                                            <label class="form-label" for="ALARM_NAME4">Nombre</label>
-                                            <input type="text" id="ALARM_NAME4" class="form-control" v-model="indicAlarm.ALARM_NAME4">
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="form-group col-md-6 mb-2">
-                                        <div class="form-group">
-                                            <label class="form-label" for="ALARM_LOGICA4">Lógica del PIN D17</label>
-                                            <div class="form-check form-switch">
-                                                <input class="form-check-input" id="ALARM_LOGICA4" type="checkbox" v-model="indicAlarm.ALARM_LOGICA4" @click="logica4"/>
-                                                <label class="form-check-label">{{ alarm_text4 }}</label>
+                                <form class="form form-vertical" @submit.prevent="handleSubmit()">
+                                    <div class="row push">
+                                        <div class="col-md-6 col-12 mb-2">
+                                            <div class="form-group">
+                                                <label class="form-label" for="ALARM_NAME4">Nombre</label>
+                                                <input type="text" id="ALARM_NAME4" class="form-control" v-model.trim="indicAlarm.ALARM_NAME4">
                                             </div>
                                         </div>
-                                    </div>                
-                                    <div class="mb-2 mt-2">
-                                        <button type="submit" class="btn btn-alt-success me-1">
-                                            <i class="fa fa-fw fa-save opacity-50 me-1"></i> Guardar
-                                        </button>
+                                        
+                                        <div class="form-group col-md-6 mb-2">
+                                            <div class="form-group">
+                                                <label class="form-label" for="ALARM_LOGICA4">Lógica del PIN D17</label>
+                                                <div class="form-check form-switch">
+                                                    <input class="form-check-input" id="ALARM_LOGICA4" type="checkbox" v-model="indicAlarm.ALARM_LOGICA4" @click="logica4"/>
+                                                    <label class="form-check-label">{{ alarm_text4 }}</label>
+                                                </div>
+                                            </div>
+                                        </div>                
+                                        <div class="mb-2 mt-2">
+                                            <button type="submit" class="btn btn-alt-success me-1">
+                                                <i class="fa fa-fw fa-save opacity-50 me-1"></i> Guardar
+                                            </button>
+                                        </div>
                                     </div>
-                                </div>
-                            </form>
+                                </form>
                             </div>
                         </div>
                         </div>
@@ -254,32 +253,32 @@
                                 </button>
                             </div>
                             </div>
-                            <div class="block-content">
-                            <form class="form form-vertical">
-                                <div class="row push">
-                                    <div class="col-md-6 col-12 mb-2">
-                                        <div class="form-group">
-                                            <label class="form-label" for="ALARM_NAME5">Nombre</label>
-                                            <input type="text" id="ALARM_NAME5" class="form-control" v-model="indicAlarm.ALARM_NAME5">
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="form-group col-md-6 mb-2">
-                                        <div class="form-group">
-                                            <label class="form-label" for="ALARM_LOGICA5">Lógica del PIN D18</label>
-                                            <div class="form-check form-switch">
-                                                <input class="form-check-input" id="ALARM_LOGICA5" type="checkbox" v-model="indicAlarm.ALARM_LOGICA5" @click="logica5"/>
-                                                <label class="form-check-label">{{ alarm_text5 }}</label>
+                            <div class="block-content">                              
+                                <form class="form form-vertical" @submit.prevent="handleSubmit()">
+                                    <div class="row push">
+                                        <div class="col-md-6 col-12 mb-2">
+                                            <div class="form-group">
+                                                <label class="form-label" for="ALARM_NAME5">Nombre</label>
+                                                <input type="text" id="ALARM_NAME5" class="form-control" v-model.trim="indicAlarm.ALARM_NAME5">
                                             </div>
                                         </div>
-                                    </div>                
-                                    <div class="mb-2 mt-2">
-                                        <button type="submit" class="btn btn-alt-success me-1">
-                                            <i class="fa fa-fw fa-save opacity-50 me-1"></i> Guardar
-                                        </button>
+                                        
+                                        <div class="form-group col-md-6 mb-2">
+                                            <div class="form-group">
+                                                <label class="form-label" for="ALARM_LOGICA5">Lógica del PIN D18</label>
+                                                <div class="form-check form-switch">
+                                                    <input class="form-check-input" id="ALARM_LOGICA5" type="checkbox" v-model="indicAlarm.ALARM_LOGICA5" @click="logica5"/>
+                                                    <label class="form-check-label">{{ alarm_text5 }}</label>
+                                                </div>
+                                            </div>
+                                        </div>                
+                                        <div class="mb-2 mt-2">
+                                            <button type="submit" class="btn btn-alt-success me-1">
+                                                <i class="fa fa-fw fa-save opacity-50 me-1"></i> Guardar
+                                            </button>
+                                        </div>
                                     </div>
-                                </div>
-                            </form>
+                                </form>
                             </div>
                         </div>
                         </div>
@@ -299,31 +298,31 @@
                             </div>
                             </div>
                             <div class="block-content">
-                            <form class="form form-vertical">
-                                <div class="row push">
-                                    <div class="col-md-6 col-12 mb-2">
-                                        <div class="form-group">
-                                            <label class="form-label" for="ALARM_NAME6">Nombre</label>
-                                            <input type="text" id="ALARM_NAME6" class="form-control" v-model="indicAlarm.ALARM_NAME6">
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="form-group col-md-6 mb-2">
-                                        <div class="form-group">
-                                            <label class="form-label" for="ALARM_LOGICA6">Lógica del PIN D25</label>
-                                            <div class="form-check form-switch">
-                                                <input class="form-check-input" id="ALARM_LOGICA6" type="checkbox" v-model="indicAlarm.ALARM_LOGICA6" @click="logica6"/>
-                                                <label class="form-check-label">{{ alarm_text6 }}</label>
+                                <form class="form form-vertical" @submit.prevent="handleSubmit()">
+                                    <div class="row push">
+                                        <div class="col-md-6 col-12 mb-2">
+                                            <div class="form-group">
+                                                <label class="form-label" for="ALARM_NAME6">Nombre</label>
+                                                <input type="text" id="ALARM_NAME6" class="form-control" v-model.trim="indicAlarm.ALARM_NAME6">
                                             </div>
                                         </div>
-                                    </div>                
-                                    <div class="mb-2 mt-2">
-                                        <button type="submit" class="btn btn-alt-success me-1">
-                                            <i class="fa fa-fw fa-save opacity-50 me-1"></i> Guardar
-                                        </button>
+                                        
+                                        <div class="form-group col-md-6 mb-2">
+                                            <div class="form-group">
+                                                <label class="form-label" for="ALARM_LOGICA6">Lógica del PIN D25</label>
+                                                <div class="form-check form-switch">
+                                                    <input class="form-check-input" id="ALARM_LOGICA6" type="checkbox" v-model="indicAlarm.ALARM_LOGICA6" @click="logica6"/>
+                                                    <label class="form-check-label">{{ alarm_text6 }}</label>
+                                                </div>
+                                            </div>
+                                        </div>                
+                                        <div class="mb-2 mt-2">
+                                            <button type="submit" class="btn btn-alt-success me-1">
+                                                <i class="fa fa-fw fa-save opacity-50 me-1"></i> Guardar
+                                            </button>
+                                        </div>
                                     </div>
-                                </div>
-                            </form>
+                                </form>
                             </div>
                         </div>
                         </div>
@@ -343,31 +342,31 @@
                             </div>
                             </div>
                             <div class="block-content">
-                            <form class="form form-vertical">
-                                <div class="row push">
-                                    <div class="col-md-6 col-12 mb-2">
-                                        <div class="form-group">
-                                            <label class="form-label" for="ALARM_NAME7">Nombre</label>
-                                            <input type="text" id="ALARM_NAME7" class="form-control" v-model="indicAlarm.ALARM_NAME7">
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="form-group col-md-6 mb-2">
-                                        <div class="form-group">
-                                            <label class="form-label" for="ALARM_LOGICA7">Lógica del PIN D26</label>
-                                            <div class="form-check form-switch">
-                                                <input class="form-check-input" id="ALARM_LOGICA7" type="checkbox" v-model="indicAlarm.ALARM_LOGICA7" @click="logica7"/>
-                                                <label class="form-check-label">{{ alarm_text7 }}</label>
+                                <form class="form form-vertical" @submit.prevent="handleSubmit()">
+                                    <div class="row push">
+                                        <div class="col-md-6 col-12 mb-2">
+                                            <div class="form-group">
+                                                <label class="form-label" for="ALARM_NAME7">Nombre</label>
+                                                <input type="text" id="ALARM_NAME7" class="form-control" v-model.trim="indicAlarm.ALARM_NAME7">
                                             </div>
                                         </div>
-                                    </div>                
-                                    <div class="mb-2 mt-2">
-                                        <button type="submit" class="btn btn-alt-success me-1">
-                                            <i class="fa fa-fw fa-save opacity-50 me-1"></i> Guardar
-                                        </button>
+                                        
+                                        <div class="form-group col-md-6 mb-2">
+                                            <div class="form-group">
+                                                <label class="form-label" for="ALARM_LOGICA7">Lógica del PIN D26</label>
+                                                <div class="form-check form-switch">
+                                                    <input class="form-check-input" id="ALARM_LOGICA7" type="checkbox" v-model="indicAlarm.ALARM_LOGICA7" @click="logica7"/>
+                                                    <label class="form-check-label">{{ alarm_text7 }}</label>
+                                                </div>
+                                            </div>
+                                        </div>                
+                                        <div class="mb-2 mt-2">
+                                            <button type="submit" class="btn btn-alt-success me-1">
+                                                <i class="fa fa-fw fa-save opacity-50 me-1"></i> Guardar
+                                            </button>
+                                        </div>
                                     </div>
-                                </div>
-                            </form>
+                                </form>
                             </div>
                         </div>
                         </div>
@@ -386,41 +385,43 @@
                                 </button>
                             </div>
                             </div>
-                            <div class="block-content">
-                            <form class="form form-vertical">
-                                <div class="row push">
-                                    <div class="col-md-6 col-12 mb-2">
-                                        <div class="form-group">
-                                            <label class="form-label" for="ALARM_NAME8">Nombre</label>
-                                            <input type="text" id="ALARM_NAME8" class="form-control" v-model="indicAlarm.ALARM_NAME8">
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="form-group col-md-6 mb-2">
-                                        <div class="form-group">
-                                            <label class="form-label" for="ALARM_LOGICA8">Lógica del PIN D27</label>
-                                            <div class="form-check form-switch">
-                                                <input class="form-check-input" id="ALARM_LOGICA8" type="checkbox" v-model="indicAlarm.ALARM_LOGICA8" @click="logica8"/>
-                                                <label class="form-check-label">{{ alarm_text8 }}</label>
+                            <div class="block-content">                           
+                                <form class="form form-vertical" @submit.prevent="handleSubmit()">
+                                    <div class="row push">
+                                        <div class="col-md-6 col-12 mb-2">
+                                            <div class="form-group">
+                                                <label class="form-label" for="ALARM_NAME8">Nombre</label>
+                                                <input type="text" id="ALARM_NAME8" class="form-control" v-model.trim="indicAlarm.ALARM_NAME8">
                                             </div>
                                         </div>
-                                    </div>                
-                                    <div class="mb-2 mt-2">
-                                        <button type="submit" class="btn btn-alt-success me-1">
-                                            <i class="fa fa-fw fa-save opacity-50 me-1"></i> Guardar
-                                        </button>
+                                        
+                                        <div class="form-group col-md-6 mb-2">
+                                            <div class="form-group">
+                                                <label class="form-label" for="ALARM_LOGICA8">Lógica del PIN D27</label>
+                                                <div class="form-check form-switch">
+                                                    <input class="form-check-input" id="ALARM_LOGICA8" type="checkbox" v-model="indicAlarm.ALARM_LOGICA8" @click="logica8"/>
+                                                    <label class="form-check-label">{{ alarm_text8 }}</label>
+                                                </div>
+                                            </div>
+                                        </div>                
+                                        <div class="mb-2 mt-2">
+                                            <button type="submit" class="btn btn-alt-success me-1">
+                                                <i class="fa fa-fw fa-save opacity-50 me-1"></i> Guardar
+                                            </button>
+                                        </div>
                                     </div>
-                                </div>
-                            </form>
+                                </form>
                             </div>
                         </div>
                         </div>
                     </div>
                 </div>
-
-
             </div>
-            {{ indicAlarm }}
+            {{ indicAlarm }}/-/{{ indicAlarm["ALARM_STATUS2"] }}/-/
+            /{{indicAlarmws}}/---/{{ indicAlarmws["ALARM_STATUS1"] }}/---/
+            /{{ indicAlarmws? "si":"no" }}/
+            /{{ indicAlarmws=='{"ALARM_STATUS1":true}'? "si":"no" }}/
+            
     </main>
 </template>
 
@@ -428,20 +429,19 @@
 
 import Hero from "@/components/common/Hero.vue"
     import useApp from "@/composables/useApp"
-    import { ref, computed, onMounted } from 'vue'
+    import { ref, computed, onMounted, watch} from 'vue'
     export default{
         
         name: "Alarmas",
         components: { Hero },
 
         setup() {
-            
             const page = "Alarmas"
             const title = "Visualización de Alarmas"
 
             // Variables 
 
-            const {command, host, swal, reloadPage, ToastMsgError, ToastMsgSuccess} = useApp()
+            const {command, host, swal, reloadPage, ToastMsgError, ToastMsgSuccess, indicAlarmws} = useApp()
 
             const indicAlarm = ref({
                 //alarma1
@@ -552,6 +552,31 @@ import Hero from "@/components/common/Hero.vue"
             onMounted(() =>{
                 get_alarm_settings()
             })
+            //manejador del evento Submit
+            const handleSubmit = () =>{
+                showAlertConfirm("Guardar Control ON/OFF", "¿Está seguro de guardar la Configuración?", "question")
+            }
+            //swal
+
+            const showAlertConfirm = (title, text, icon) => {
+            swal({
+                title: `${title}`,
+                text: `${text}`,
+                icon: `${icon}`,
+                showCancelButton: true,
+                confirmButtonColor: '#41bb82',
+                cancelButtonColor: '#ff3030',
+                confirmButtonText: 'Aceptar',
+                cancelButtonText: 'Cancelar',
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    post_alarm_settings()
+                }
+            })
+        }
+
+
+            //Método get de los datos
             const get_alarm_settings = async() =>{
                 const url = `http://${host}/api/alarmas`
                 await fetch(url, {
@@ -572,9 +597,37 @@ import Hero from "@/components/common/Hero.vue"
                 ToastMsgError(`Error : ${error}`, "check", 5000)
             })
             }
+            //Método POST envio de los datos
+            const  post_alarm_settings = () => {
+            const url = `http://${host}/api/alarmas`
+            const myHeaders = new Headers()
+            myHeaders.append(
+            'Accept', 'application/json',
+            'Content-Type', 'application/json'
+            )
+            const requestOptions = {
+                method: 'POST',
+                headers: myHeaders,
+                body: JSON.stringify(indicAlarm.value)
+            }
+            fetch(url, requestOptions)
+                .then((res) => res.json())
+                .then((datos) => {
+                    if (datos.save) {
+                        ToastMsgSuccess(`"Configuración de alarma guardada correctamente"`, "check", 5000)
+                        reloadPage("alarmas", 5000)
+                    }
+                })
+                .catch((error) => {
+                    ToastMsgError(`Error : ${error}`, "check", 5000)
+                })
+            }
 
             //pone en rojo si se alarma
             // Computadas
+
+           
+
             const alarm_class1 = computed(() => {
             return indicAlarm.value.ALARM_STATUS1 ? "btn block-header btn-danger mt-1" : "btn block-header bg-xeco-light mt-1"
             })
@@ -601,30 +654,39 @@ import Hero from "@/components/common/Hero.vue"
             })
 
             const alarm_text1 = computed(() =>{
-            return indicAlarm.ALARM_LOGICA1 ? "Invertida":"Normal"
+            return indicAlarm.value.ALARM_LOGICA1 ? "Invertida":"Normal"
             })
             const alarm_text2 = computed(() =>{
-            return indicAlarm.ALARM_LOGICA2 ? "Invertida":"Normal"
+            return indicAlarm.value.ALARM_LOGICA2 ? "Invertida":"Normal"
             })
             const alarm_text3 = computed(() =>{
-            return indicAlarm.ALARM_LOGICA3 ? "Invertida":"Normal"
+            return indicAlarm.value.ALARM_LOGICA3 ? "Invertida":"Normal"
             })
             const alarm_text4 = computed(() =>{
-            return indicAlarm.ALARM_LOGICA4 ? "Invertida":"Normal"
+            return indicAlarm.value.ALARM_LOGICA4 ? "Invertida":"Normal"
             })
             const alarm_text5 = computed(() =>{
-            return indicAlarm.ALARM_LOGICA5 ? "Invertida":"Normal"
+            return indicAlarm.value.ALARM_LOGICA5 ? "Invertida":"Normal"
             })
             const alarm_text6 = computed(() =>{
-            return indicAlarm.ALARM_LOGICA6 ? "Invertida":"Normal"
+            return indicAlarm.value.ALARM_LOGICA6 ? "Invertida":"Normal"
             })
             const alarm_text7 = computed(() =>{
-            return indicAlarm.ALARM_LOGICA7 ? "Invertida":"Normal"
+            return indicAlarm.value.ALARM_LOGICA7 ? "Invertida":"Normal"
             })
             const alarm_text8 = computed(() =>{
-            return indicAlarm.ALARM_LOGICA8 ? "Invertida":"Normal"
+            return indicAlarm.value.ALARM_LOGICA8 ? "Invertida":"Normal"
             })
+            
+            watch(() => indicAlarmws.value,
+            ({ ALARM_STATUS1 }) => {
+                indicAlarm.value["ALARM_STATUS1"] = ALARM_STATUS1 
+            })
+            
+    
             return {
+                handleSubmit,
+                indicAlarmws,
                 indicAlarm,
                 page,
                 title,

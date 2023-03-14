@@ -369,6 +369,7 @@
                 </div>
             </div>
             <!-- END Inalámbirco -->
+            {{ index_update }}
         </div>
         <!-- END ROW Hardware & Software -->
     </div>
@@ -390,6 +391,7 @@ export default {
             const page = ""
 
             const {
+                index_update,
                 index_datos,
                 wifi_status,
                 mqtt_status,
@@ -406,6 +408,7 @@ export default {
             } = useIndex()
 
         return{
+            index_update,
             title,
             page,
             index_datos,
