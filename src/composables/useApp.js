@@ -140,7 +140,7 @@ const useApp = () => {
             }else if (Object.keys(resp).length > 0 && resp.type == "time") {
                 time_update.value = resp.msg
             }else if (Object.keys(resp).length > 0 && resp.type == "alarmas" && pathname == "/alarmas") {
-                indicAlarmws.value = resp.msg
+                indicAlarmws.value = resp
             }
             
         }

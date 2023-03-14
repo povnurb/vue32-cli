@@ -417,10 +417,8 @@
                     </div>
                 </div>
             </div>
-            {{ indicAlarm }}/-/{{ indicAlarm["ALARM_STATUS2"] }}/-/
-            /{{indicAlarmws}}/---/{{ indicAlarmws["ALARM_STATUS1"] }}/---/
-            /{{ indicAlarmws? "si":"no" }}/
-            /{{ indicAlarmws=='{"ALARM_STATUS1":true}'? "si":"no" }}/
+            {{ indicAlarm }}/
+            /{{indicAlarmws}}/
             
     </main>
 </template>
@@ -654,28 +652,28 @@ import Hero from "@/components/common/Hero.vue"
             })
 
             const alarm_text1 = computed(() =>{
-            return indicAlarm.value.ALARM_LOGICA1 ? "Invertida":"Normal"
+            return indicAlarm.value.ALARM_LOGICA1 ? "Invertida (Tierra)":"Normal (Voltaje)"
             })
             const alarm_text2 = computed(() =>{
-            return indicAlarm.value.ALARM_LOGICA2 ? "Invertida":"Normal"
+            return indicAlarm.value.ALARM_LOGICA2 ? "Invertida (Tierra)":"Normal (Voltaje)"
             })
             const alarm_text3 = computed(() =>{
-            return indicAlarm.value.ALARM_LOGICA3 ? "Invertida":"Normal"
+            return indicAlarm.value.ALARM_LOGICA3 ? "Invertida (Tierra)":"Normal (Voltaje)"
             })
             const alarm_text4 = computed(() =>{
-            return indicAlarm.value.ALARM_LOGICA4 ? "Invertida":"Normal"
+            return indicAlarm.value.ALARM_LOGICA4 ? "Invertida (Tierra)":"Normal (Voltaje)"
             })
             const alarm_text5 = computed(() =>{
-            return indicAlarm.value.ALARM_LOGICA5 ? "Invertida":"Normal"
+            return indicAlarm.value.ALARM_LOGICA5 ? "Invertida (Tierra)":"Normal (Voltaje)"
             })
             const alarm_text6 = computed(() =>{
-            return indicAlarm.value.ALARM_LOGICA6 ? "Invertida":"Normal"
+            return indicAlarm.value.ALARM_LOGICA6 ? "Invertida (Tierra)":"Normal (Voltaje)"
             })
             const alarm_text7 = computed(() =>{
-            return indicAlarm.value.ALARM_LOGICA7 ? "Invertida":"Normal"
+            return indicAlarm.value.ALARM_LOGICA7 ? "Invertida (Tierra)":"Normal (Voltaje)"
             })
             const alarm_text8 = computed(() =>{
-            return indicAlarm.value.ALARM_LOGICA8 ? "Invertida":"Normal"
+            return indicAlarm.value.ALARM_LOGICA8 ? "Invertida (Tierra)":"Normal (Voltaje)"
             })
             
             watch(() => indicAlarmws.value,
