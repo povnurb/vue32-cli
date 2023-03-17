@@ -90,8 +90,8 @@
                                     <div class="form-group col-md-6 mb-2">
                                         <div class="form-group">
                                             <label class="form-label" for="ALARM_LOGICA1">Lógica del PIN D5</label>
-                                            <div class="form-check form-switch">
-                                                <input class="form-check-input" id="ALARM_LOGICA1" type="checkbox" v-model="indicAlarm.ALARM_LOGICA1" @click="logica1"/>
+                                            <div data-bs-toggle="popover" data-bs-placement="right" title="Aviso:" data-bs-content="Este PIN no tiene habilitada esta funcionalidad por cuestiones de diseño, solo se activa con nivel bajo (Tierra)." class="form-check form-switch">
+                                                <input class="form-check-input" id="ALARM_LOGICA1" type="checkbox" v-model="indicAlarm.ALARM_LOGICA1" @click="logica1" disabled/>
                                                 <label class="form-check-label">{{ alarm_text1 }}</label>
                                             </div>
                                         </div>
@@ -99,7 +99,7 @@
                                     <div class="mb-2 mt-2">
                                         <button type="submit" class="btn btn-alt-success me-1">
                                             <i class="fa fa-fw fa-save opacity-50 me-1"></i> Guardar
-                                        </button>
+                                        </button><code>Nota: Es necesario Reiniciar el dispositivo</code>
                                     </div>
                                 </div>
                             </form>
@@ -143,7 +143,7 @@
                                         <div class="mb-2 mt-2">
                                             <button type="submit" class="btn btn-alt-success me-1">
                                                 <i class="fa fa-fw fa-save opacity-50 me-1"></i> Guardar
-                                            </button>
+                                            </button><code>Nota: Es necesario Reiniciar el dispositivo</code>
                                         </div>
                                     </div>
                                 </form>
@@ -187,7 +187,7 @@
                                         <div class="mb-2 mt-2">
                                             <button type="submit" class="btn btn-alt-success me-1">
                                                 <i class="fa fa-fw fa-save opacity-50 me-1"></i> Guardar
-                                            </button>
+                                            </button><code>Nota: Es necesario Reiniciar el dispositivo</code>
                                         </div>
                                     </div>
                                 </form>
@@ -231,7 +231,7 @@
                                         <div class="mb-2 mt-2">
                                             <button type="submit" class="btn btn-alt-success me-1">
                                                 <i class="fa fa-fw fa-save opacity-50 me-1"></i> Guardar
-                                            </button>
+                                            </button><code>Nota: Es necesario Reiniciar el dispositivo</code>
                                         </div>
                                     </div>
                                 </form>
@@ -275,7 +275,7 @@
                                         <div class="mb-2 mt-2">
                                             <button type="submit" class="btn btn-alt-success me-1">
                                                 <i class="fa fa-fw fa-save opacity-50 me-1"></i> Guardar
-                                            </button>
+                                            </button><code>Nota: Es necesario Reiniciar el dispositivo</code>
                                         </div>
                                     </div>
                                 </form>
@@ -319,7 +319,7 @@
                                         <div class="mb-2 mt-2">
                                             <button type="submit" class="btn btn-alt-success me-1">
                                                 <i class="fa fa-fw fa-save opacity-50 me-1"></i> Guardar
-                                            </button>
+                                            </button><code>Nota: Es necesario Reiniciar el dispositivo</code>
                                         </div>
                                     </div>
                                 </form>
@@ -363,7 +363,7 @@
                                         <div class="mb-2 mt-2">
                                             <button type="submit" class="btn btn-alt-success me-1">
                                                 <i class="fa fa-fw fa-save opacity-50 me-1"></i> Guardar
-                                            </button>
+                                            </button><code>Nota: Es necesario Reiniciar el dispositivo</code>
                                         </div>
                                     </div>
                                 </form>
@@ -407,7 +407,7 @@
                                         <div class="mb-2 mt-2">
                                             <button type="submit" class="btn btn-alt-success me-1">
                                                 <i class="fa fa-fw fa-save opacity-50 me-1"></i> Guardar
-                                            </button>
+                                            </button><code>Nota: Es necesario Reiniciar el dispositivo</code>
                                         </div>
                                     </div>
                                 </form>
@@ -417,9 +417,6 @@
                     </div>
                 </div>
             </div>
-            {{ indicAlarm }}/
-            /{{indicAlarmws}}/
-            
     </main>
 </template>
 
@@ -623,62 +620,97 @@ import Hero from "@/components/common/Hero.vue"
 
             //pone en rojo si se alarma
             // Computadas
-
-           
-
             const alarm_class1 = computed(() => {
-            return indicAlarm.value.ALARM_STATUS1 ? "btn block-header btn-danger mt-1" : "btn block-header bg-xeco-light mt-1"
+                if(!indicAlarm.value.ALARM_LOGICA1){
+                return indicAlarm.value.ALARM_STATUS1 ? "btn block-header bg-xeco-light mt-1":"btn block-header btn-danger mt-1"
+                }else{
+                return indicAlarm.value.ALARM_STATUS1 ? "btn block-header btn-danger mt-1":"btn block-header bg-xeco-light mt-1"}
             })
             const alarm_class2 = computed(() => {
-            return indicAlarm.value.ALARM_STATUS2 ? "btn block-header btn-danger mt-1" : "btn block-header bg-xeco-light mt-1"
+            return indicAlarm.value.ALARM_STATUS2 ? "btn block-header bg-xeco-light mt-1":"btn block-header btn-danger mt-1"
             })
             const alarm_class3 = computed(() => {
-            return indicAlarm.value.ALARM_STATUS3 ? "btn block-header btn-danger mt-1" : "btn block-header bg-xeco-light mt-1"
+            return indicAlarm.value.ALARM_STATUS3 ? "btn block-header bg-xeco-light mt-1":"btn block-header btn-danger mt-1"
             })
             const alarm_class4 = computed(() => {
-            return indicAlarm.value.ALARM_STATUS4 ? "btn block-header btn-danger mt-1" : "btn block-header bg-xeco-light mt-1"
+            return indicAlarm.value.ALARM_STATUS4 ? "btn block-header bg-xeco-light mt-1":"btn block-header btn-danger mt-1"
             })
             const alarm_class5 = computed(() => {
-            return indicAlarm.value.ALARM_STATUS5 ? "btn block-header btn-danger mt-1" : "btn block-header bg-xeco-light mt-1"
+            return indicAlarm.value.ALARM_STATUS5 ? "btn block-header bg-xeco-light mt-1":"btn block-header btn-danger mt-1"
             })
             const alarm_class6 = computed(() => {
-            return indicAlarm.value.ALARM_STATUS6 ? "btn block-header btn-danger mt-1" : "btn block-header bg-xeco-light mt-1"
+            return indicAlarm.value.ALARM_STATUS6 ? "btn block-header bg-xeco-light mt-1":"btn block-header btn-danger mt-1"
             })
             const alarm_class7 = computed(() => {
-            return indicAlarm.value.ALARM_STATUS7 ? "btn block-header btn-danger mt-1" : "btn block-header bg-xeco-light mt-1"
+            return indicAlarm.value.ALARM_STATUS7 ? "btn block-header bg-xeco-light mt-1":"btn block-header btn-danger mt-1"
             })
             const alarm_class8 = computed(() => {
-            return indicAlarm.value.ALARM_STATUS8 ? "btn block-header btn-danger mt-1" : "btn block-header bg-xeco-light mt-1"
+            return indicAlarm.value.ALARM_STATUS8 ? "btn block-header bg-xeco-light mt-1":"btn block-header btn-danger mt-1"
             })
 
             const alarm_text1 = computed(() =>{
-            return indicAlarm.value.ALARM_LOGICA1 ? "Invertida (Tierra)":"Normal (Voltaje)"
+            return indicAlarm.value.ALARM_LOGICA1 ? "Invertida (Se activa con Voltaje)":"Normal (Se activa con Tierra)"
             })
             const alarm_text2 = computed(() =>{
-            return indicAlarm.value.ALARM_LOGICA2 ? "Invertida (Tierra)":"Normal (Voltaje)"
+            return indicAlarm.value.ALARM_LOGICA2 ? "Invertida (Se activa con Voltaje)":"Normal (Se activa con Tierra)"
             })
             const alarm_text3 = computed(() =>{
-            return indicAlarm.value.ALARM_LOGICA3 ? "Invertida (Tierra)":"Normal (Voltaje)"
+            return indicAlarm.value.ALARM_LOGICA3 ? "Invertida (Se activa con Voltaje)":"Normal (Se activa con Tierra)"
             })
             const alarm_text4 = computed(() =>{
-            return indicAlarm.value.ALARM_LOGICA4 ? "Invertida (Tierra)":"Normal (Voltaje)"
+            return indicAlarm.value.ALARM_LOGICA4 ? "Invertida (Se activa con Voltaje)":"Normal (Se activa con Tierra)"
             })
             const alarm_text5 = computed(() =>{
-            return indicAlarm.value.ALARM_LOGICA5 ? "Invertida (Tierra)":"Normal (Voltaje)"
+            return indicAlarm.value.ALARM_LOGICA5 ? "Invertida (Se activa con Voltaje)":"Normal (Se activa con Tierra)"
             })
             const alarm_text6 = computed(() =>{
-            return indicAlarm.value.ALARM_LOGICA6 ? "Invertida (Tierra)":"Normal (Voltaje)"
+            return indicAlarm.value.ALARM_LOGICA6 ? "Invertida (Se activa con Voltaje)":"Normal (Se activa con Tierra)"
             })
             const alarm_text7 = computed(() =>{
-            return indicAlarm.value.ALARM_LOGICA7 ? "Invertida (Tierra)":"Normal (Voltaje)"
+            return indicAlarm.value.ALARM_LOGICA7 ? "Invertida (Se activa con Voltaje)":"Normal (Se activa con Tierra)"
             })
             const alarm_text8 = computed(() =>{
-            return indicAlarm.value.ALARM_LOGICA8 ? "Invertida (Tierra)":"Normal (Voltaje)"
+            return indicAlarm.value.ALARM_LOGICA8 ? "Invertida (Se activa con Voltaje)":"Normal (Se activa con Tierra)"
             })
             
             watch(() => indicAlarmws.value,
-            ({ ALARM_STATUS1 }) => {
+            ({ ALARM_STATUS1,ALARM_CONT1,ALARM_STATUS2,ALARM_CONT2,ALARM_STATUS3,ALARM_CONT3,ALARM_STATUS4,ALARM_CONT4
+            ,ALARM_STATUS5,ALARM_CONT5,ALARM_STATUS6,ALARM_CONT6,ALARM_STATUS7,ALARM_CONT7,ALARM_STATUS8,ALARM_CONT8
+            ,ALARM_TIMEON1,ALARM_TIMEON2,ALARM_TIMEON3,ALARM_TIMEON4,ALARM_TIMEON5,ALARM_TIMEON6,ALARM_TIMEON7,ALARM_TIMEON8
+            ,ALARM_TIMEOFF1,ALARM_TIMEOFF2,ALARM_TIMEOFF3,ALARM_TIMEOFF4,ALARM_TIMEOFF5,ALARM_TIMEOFF6,ALARM_TIMEOFF7,ALARM_TIMEOFF8}) => {
                 indicAlarm.value["ALARM_STATUS1"] = ALARM_STATUS1 
+                indicAlarm.value["ALARM_CONT1"] = ALARM_CONT1
+                indicAlarm.value["ALARM_TIMEON1"] = ALARM_TIMEON1
+                indicAlarm.value["ALARM_TIMEOFF1"] = ALARM_TIMEOFF1
+                indicAlarm.value["ALARM_STATUS2"] = ALARM_STATUS2 
+                indicAlarm.value["ALARM_CONT2"] = ALARM_CONT2
+                indicAlarm.value["ALARM_TIMEON2"] = ALARM_TIMEON2
+                indicAlarm.value["ALARM_TIMEOFF2"] = ALARM_TIMEOFF2
+                indicAlarm.value["ALARM_STATUS3"] = ALARM_STATUS3 
+                indicAlarm.value["ALARM_CONT3"] = ALARM_CONT3
+                indicAlarm.value["ALARM_TIMEON3"] = ALARM_TIMEON3
+                indicAlarm.value["ALARM_TIMEOFF3"] = ALARM_TIMEOFF3
+                indicAlarm.value["ALARM_STATUS4"] = ALARM_STATUS4 
+                indicAlarm.value["ALARM_CONT4"] = ALARM_CONT4
+                indicAlarm.value["ALARM_TIMEON4"] = ALARM_TIMEON4
+                indicAlarm.value["ALARM_TIMEOFF4"] = ALARM_TIMEOFF4
+                indicAlarm.value["ALARM_STATUS5"] = ALARM_STATUS5 
+                indicAlarm.value["ALARM_CONT5"] = ALARM_CONT5
+                indicAlarm.value["ALARM_TIMEON5"] = ALARM_TIMEON5
+                indicAlarm.value["ALARM_TIMEOFF5"] = ALARM_TIMEOFF5
+                indicAlarm.value["ALARM_STATUS6"] = ALARM_STATUS6 
+                indicAlarm.value["ALARM_CONT6"] = ALARM_CONT6
+                indicAlarm.value["ALARM_TIMEON6"] = ALARM_TIMEON6
+                indicAlarm.value["ALARM_TIMEOFF6"] = ALARM_TIMEOFF6
+                indicAlarm.value["ALARM_STATUS7"] = ALARM_STATUS7 
+                indicAlarm.value["ALARM_CONT7"] = ALARM_CONT7
+                indicAlarm.value["ALARM_TIMEON7"] = ALARM_TIMEON7
+                indicAlarm.value["ALARM_TIMEOFF7"] = ALARM_TIMEOFF7
+                indicAlarm.value["ALARM_STATUS8"] = ALARM_STATUS8 
+                indicAlarm.value["ALARM_CONT8"] = ALARM_CONT8
+                indicAlarm.value["ALARM_TIMEON8"] = ALARM_TIMEON8
+                indicAlarm.value["ALARM_TIMEOFF8"] = ALARM_TIMEOFF8
+                
             })
             
     

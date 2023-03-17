@@ -166,7 +166,7 @@ const useApp = () => {
     }
     
     const command = (cmd) => {
-        console.log(ws)
+        //console.log(ws)
         ws.value.send(cmd)
     }
     const deleteSession = () => {
