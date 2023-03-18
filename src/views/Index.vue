@@ -369,7 +369,6 @@
                 </div>
             </div>
             <!-- END Inalámbirco -->
-            {{ index_update }}
         </div>
         <!-- END ROW Hardware & Software -->
     </div>

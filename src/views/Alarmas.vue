@@ -8,6 +8,45 @@
             <!--verde btn-success-->
             <!--rojo btn-danger-->
             <!--colores: bg-gd-sun, bg-gd-sea, bg-gd-aqua, bg-gd-fruit, bg-xeco-light, bg-xeco-dark, btn-success, bg-black-->
+            <div class="row items-push">
+                <div class="col-sm-4">
+                <div class="block block-rounded h-100 mb-0">
+                    <div class="block-header block-header-default">
+                    
+                    <div class="block-options">
+                        <div class="fs-1 fw-bold">{{indicAlarm.temp_cpu}}°C</div>
+                        <div class="text-muted mb-3">Temperatura CPU</div>
+                    </div>
+                    </div>
+                    
+                </div>
+                </div>
+                <div class="col-sm-4">
+                <div class="block block-rounded h-100 mb-0">
+                    <div class="block-header block-header-default">
+                    
+                    <div class="block-options">
+                        <div class="fs-1 fw-bold">14.6°C</div>
+                        <div class="text-muted mb-3">Temperatura Sala</div>
+                    </div>
+                    </div>
+                    
+                </div>
+                </div>
+                <div class="col-sm-4">
+                <div class="block block-rounded h-100 mb-0">
+                    <div class="block-header block-header-default">
+                    
+                    <div class="text-center block-options">
+                        <div class="fs-1 fw-bold">14.6 %</div>
+                        <div class="text-muted mb-3">Humedad Sala</div>
+                    </div>
+                    </div>
+                    
+                </div>
+                </div>
+            </div>
+            
             <div class="content col-md-12 col-xl-12">
                 <a class="bg-gd-aqua btn block-header mt-1">
                     <i class="" >#</i>
@@ -549,7 +588,7 @@ import Hero from "@/components/common/Hero.vue"
             })
             //manejador del evento Submit
             const handleSubmit = () =>{
-                showAlertConfirm("Guardar Control ON/OFF", "¿Está seguro de guardar la Configuración?", "question")
+                showAlertConfirm("Guardar", "¿Está seguro de guardar la Configuración?", "question")
             }
             //swal
 
@@ -677,7 +716,8 @@ import Hero from "@/components/common/Hero.vue"
             ({ ALARM_STATUS1,ALARM_CONT1,ALARM_STATUS2,ALARM_CONT2,ALARM_STATUS3,ALARM_CONT3,ALARM_STATUS4,ALARM_CONT4
             ,ALARM_STATUS5,ALARM_CONT5,ALARM_STATUS6,ALARM_CONT6,ALARM_STATUS7,ALARM_CONT7,ALARM_STATUS8,ALARM_CONT8
             ,ALARM_TIMEON1,ALARM_TIMEON2,ALARM_TIMEON3,ALARM_TIMEON4,ALARM_TIMEON5,ALARM_TIMEON6,ALARM_TIMEON7,ALARM_TIMEON8
-            ,ALARM_TIMEOFF1,ALARM_TIMEOFF2,ALARM_TIMEOFF3,ALARM_TIMEOFF4,ALARM_TIMEOFF5,ALARM_TIMEOFF6,ALARM_TIMEOFF7,ALARM_TIMEOFF8}) => {
+            ,ALARM_TIMEOFF1,ALARM_TIMEOFF2,ALARM_TIMEOFF3,ALARM_TIMEOFF4,ALARM_TIMEOFF5,ALARM_TIMEOFF6,ALARM_TIMEOFF7,ALARM_TIMEOFF8
+            ,temp_cpu}) => {
                 indicAlarm.value["ALARM_STATUS1"] = ALARM_STATUS1 
                 indicAlarm.value["ALARM_CONT1"] = ALARM_CONT1
                 indicAlarm.value["ALARM_TIMEON1"] = ALARM_TIMEON1
@@ -710,7 +750,7 @@ import Hero from "@/components/common/Hero.vue"
                 indicAlarm.value["ALARM_CONT8"] = ALARM_CONT8
                 indicAlarm.value["ALARM_TIMEON8"] = ALARM_TIMEON8
                 indicAlarm.value["ALARM_TIMEOFF8"] = ALARM_TIMEOFF8
-                
+                indicAlarm.value["temp_cpu"] = temp_cpu
             })
             
     

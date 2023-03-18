@@ -25,7 +25,6 @@
         </div>
     </a>
 </div>
-{{ action }}
 <!-- Pop Out Block Modal -->
 <div class="modal fade" id="modal-block-popout" tabindex="-1" role="dialog" aria-labelledby="modal-block-popout" aria-hidden="true">
     <div class="modal-dialog modal-dialog-popout modal-lg" role="document">
