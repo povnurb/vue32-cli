@@ -15,7 +15,7 @@
                     
                     <div class="block-options">
                         <div class="fs-1 fw-bold">{{indicAlarm.temp_cpu}}°C</div>
-                        <div class="text-muted mb-3">Temperatura CPU</div>
+                        <div class="text-muted mb-3">Temperatura CPU del dispositivo</div>
                     </div>
                     </div>
                     
@@ -26,7 +26,7 @@
                     <div class="block-header block-header-default">
                     
                     <div class="block-options">
-                        <div class="fs-1 fw-bold">14.6°C</div>
+                        <div class="fs-1 fw-bold">{{indicAlarm.tempC}}°C</div>
                         <div class="text-muted mb-3">Temperatura Sala</div>
                     </div>
                     </div>
@@ -38,7 +38,7 @@
                     <div class="block-header block-header-default">
                     
                     <div class="text-center block-options">
-                        <div class="fs-1 fw-bold">14.6 %</div>
+                        <div class="fs-1 fw-bold">{{indicAlarm.humedad}} %</div>
                         <div class="text-muted mb-3">Humedad Sala</div>
                     </div>
                     </div>
@@ -138,7 +138,7 @@
                                     <div class="mb-2 mt-2">
                                         <button type="submit" class="btn btn-alt-success me-1">
                                             <i class="fa fa-fw fa-save opacity-50 me-1"></i> Guardar
-                                        </button><code>Nota: Es necesario Reiniciar el dispositivo</code>
+                                        </button><code>Nota: Esta Alarma no se Activa de Manera Remota</code>
                                     </div>
                                 </div>
                             </form>
@@ -182,7 +182,7 @@
                                         <div class="mb-2 mt-2">
                                             <button type="submit" class="btn btn-alt-success me-1">
                                                 <i class="fa fa-fw fa-save opacity-50 me-1"></i> Guardar
-                                            </button><code>Nota: Es necesario Reiniciar el dispositivo</code>
+                                            </button>
                                         </div>
                                     </div>
                                 </form>
@@ -226,7 +226,7 @@
                                         <div class="mb-2 mt-2">
                                             <button type="submit" class="btn btn-alt-success me-1">
                                                 <i class="fa fa-fw fa-save opacity-50 me-1"></i> Guardar
-                                            </button><code>Nota: Es necesario Reiniciar el dispositivo</code>
+                                            </button>
                                         </div>
                                     </div>
                                 </form>
@@ -270,7 +270,7 @@
                                         <div class="mb-2 mt-2">
                                             <button type="submit" class="btn btn-alt-success me-1">
                                                 <i class="fa fa-fw fa-save opacity-50 me-1"></i> Guardar
-                                            </button><code>Nota: Es necesario Reiniciar el dispositivo</code>
+                                            </button>
                                         </div>
                                     </div>
                                 </form>
@@ -314,7 +314,7 @@
                                         <div class="mb-2 mt-2">
                                             <button type="submit" class="btn btn-alt-success me-1">
                                                 <i class="fa fa-fw fa-save opacity-50 me-1"></i> Guardar
-                                            </button><code>Nota: Es necesario Reiniciar el dispositivo</code>
+                                            </button>
                                         </div>
                                     </div>
                                 </form>
@@ -358,7 +358,7 @@
                                         <div class="mb-2 mt-2">
                                             <button type="submit" class="btn btn-alt-success me-1">
                                                 <i class="fa fa-fw fa-save opacity-50 me-1"></i> Guardar
-                                            </button><code>Nota: Es necesario Reiniciar el dispositivo</code>
+                                            </button>
                                         </div>
                                     </div>
                                 </form>
@@ -402,7 +402,7 @@
                                         <div class="mb-2 mt-2">
                                             <button type="submit" class="btn btn-alt-success me-1">
                                                 <i class="fa fa-fw fa-save opacity-50 me-1"></i> Guardar
-                                            </button><code>Nota: Es necesario Reiniciar el dispositivo</code>
+                                            </button>
                                         </div>
                                     </div>
                                 </form>
@@ -446,7 +446,7 @@
                                         <div class="mb-2 mt-2">
                                             <button type="submit" class="btn btn-alt-success me-1">
                                                 <i class="fa fa-fw fa-save opacity-50 me-1"></i> Guardar
-                                            </button><code>Nota: Es necesario Reiniciar el dispositivo</code>
+                                            </button>
                                         </div>
                                     </div>
                                 </form>
@@ -660,10 +660,7 @@ import Hero from "@/components/common/Hero.vue"
             //pone en rojo si se alarma
             // Computadas
             const alarm_class1 = computed(() => {
-                if(!indicAlarm.value.ALARM_LOGICA1){
-                return indicAlarm.value.ALARM_STATUS1 ? "btn block-header bg-xeco-light mt-1":"btn block-header btn-danger mt-1"
-                }else{
-                return indicAlarm.value.ALARM_STATUS1 ? "btn block-header btn-danger mt-1":"btn block-header bg-xeco-light mt-1"}
+            return indicAlarm.value.ALARM_STATUS1 ? "btn block-header bg-xeco-light mt-1":"btn block-header btn-danger mt-1"
             })
             const alarm_class2 = computed(() => {
             return indicAlarm.value.ALARM_STATUS2 ? "btn block-header bg-xeco-light mt-1":"btn block-header btn-danger mt-1"
@@ -717,7 +714,7 @@ import Hero from "@/components/common/Hero.vue"
             ,ALARM_STATUS5,ALARM_CONT5,ALARM_STATUS6,ALARM_CONT6,ALARM_STATUS7,ALARM_CONT7,ALARM_STATUS8,ALARM_CONT8
             ,ALARM_TIMEON1,ALARM_TIMEON2,ALARM_TIMEON3,ALARM_TIMEON4,ALARM_TIMEON5,ALARM_TIMEON6,ALARM_TIMEON7,ALARM_TIMEON8
             ,ALARM_TIMEOFF1,ALARM_TIMEOFF2,ALARM_TIMEOFF3,ALARM_TIMEOFF4,ALARM_TIMEOFF5,ALARM_TIMEOFF6,ALARM_TIMEOFF7,ALARM_TIMEOFF8
-            ,temp_cpu}) => {
+            ,temp_cpu,tempC,humedad}) => {
                 indicAlarm.value["ALARM_STATUS1"] = ALARM_STATUS1 
                 indicAlarm.value["ALARM_CONT1"] = ALARM_CONT1
                 indicAlarm.value["ALARM_TIMEON1"] = ALARM_TIMEON1
@@ -751,6 +748,8 @@ import Hero from "@/components/common/Hero.vue"
                 indicAlarm.value["ALARM_TIMEON8"] = ALARM_TIMEON8
                 indicAlarm.value["ALARM_TIMEOFF8"] = ALARM_TIMEOFF8
                 indicAlarm.value["temp_cpu"] = temp_cpu
+                indicAlarm.value["tempC"] = tempC
+                indicAlarm.value["humedad"] = humedad
             })
             
     
