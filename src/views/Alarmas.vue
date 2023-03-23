@@ -14,7 +14,7 @@
                     <div class="block-header block-header-default">
                     
                     <div class="block-options">
-                        <div class="fs-1 fw-bold">{{indicAlarm.temp_cpu}}°C</div>
+                        <div class="fs-1 fw-bold">{{indicAlarmws.t_cpu}}°C</div>
                         <div class="text-muted mb-3">Temperatura CPU del dispositivo</div>
                     </div>
                     </div>
@@ -26,7 +26,7 @@
                     <div class="block-header block-header-default">
                     
                     <div class="block-options">
-                        <div class="fs-1 fw-bold">{{indicAlarm.tempC}}°C</div>
+                        <div class="fs-1 fw-bold">{{indicAlarmws.tC}}°C</div>
                         <div class="text-muted mb-3">Temperatura Sala</div>
                     </div>
                     </div>
@@ -38,7 +38,7 @@
                     <div class="block-header block-header-default">
                     
                     <div class="text-center block-options">
-                        <div class="fs-1 fw-bold">{{indicAlarm.humedad}} %</div>
+                        <div class="fs-1 fw-bold">{{indicAlarmws.hum}} %</div>
                         <div class="text-muted mb-3">Humedad Sala</div>
                     </div>
                     </div>
@@ -57,50 +57,50 @@
                 <a :class="alarm_class1" id="ALARMA1" data-bs-toggle="modal" data-bs-target="#alarma1">
                     <i class="" id="cat">{{ indicAlarm.ALARM_CONT1 }}</i>
                     <div class="col-lg-4">{{ indicAlarm.ALARM_NAME1 }}</div>
-                    <div class="col-lg-4" id="cat_on" >{{ indicAlarm.ALARM_TIMEON1 }}</div>
-                    <div class="col-lg-4" id="cat_off">{{ indicAlarm.ALARM_TIMEOFF1 }}</div>
+                    <div class="col-lg-4" id="cat_on" >{{ indicAlarmws.ALARM_TIMEON1 }}</div>
+                    <div class="col-lg-4" id="cat_off">{{ indicAlarmws.ALARM_TIMEOFF1 }}</div>
                 </a>
                 <a :class="alarm_class2" id="ALARMA2" data-bs-toggle="modal" data-bs-target="#alarma2">
                     <i class="" id="cpa">{{ indicAlarm.ALARM_CONT2 }}</i> 
                     <div class="col-lg-4">{{ indicAlarm.ALARM_NAME2 }}</div>
-                    <div class="col-lg-4" id="cpa_on">{{ indicAlarm.ALARM_TIMEON2 }}</div>
-                    <div class="col-lg-4" id="cpa_off">{{ indicAlarm.ALARM_TIMEOFF2 }}</div>
+                    <div class="col-lg-4" id="cpa_on">{{ indicAlarmws.ALARM_TIMEON2 }}</div>
+                    <div class="col-lg-4" id="cpa_off">{{ indicAlarmws.ALARM_TIMEOFF2 }}</div>
                 </a>
                 <a :class="alarm_class3" id="ALARMA3" data-bs-toggle="modal" data-bs-target="#alarma3">
                     <i class="" id="cfc">{{ indicAlarm.ALARM_CONT3 }}</i> 
                     <div class="col-lg-4">{{ indicAlarm.ALARM_NAME3 }}</div>
-                    <div class="col-lg-4" id="cfc_on">{{ indicAlarm.ALARM_TIMEON3 }}</div>
-                    <div class="col-lg-4" id="cfc_off">{{ indicAlarm.ALARM_TIMEOFF3 }}</div>
+                    <div class="col-lg-4" id="cfc_on">{{ indicAlarmws.ALARM_TIMEON3 }}</div>
+                    <div class="col-lg-4" id="cfc_off">{{ indicAlarmws.ALARM_TIMEOFF3 }}</div>
                 </a>
                 <a :class="alarm_class4" id="ALARMA4" data-bs-toggle="modal" data-bs-target="#alarma4">
                     <i class="" id="csm">{{ indicAlarm.ALARM_CONT4 }}</i> 
                     <div class="col-lg-4">{{ indicAlarm.ALARM_NAME4 }}</div>
-                    <div class="col-lg-4" id="csm_on">{{ indicAlarm.ALARM_TIMEON4 }}</div>
-                    <div class="col-lg-4" id="csm_off">{{ indicAlarm.ALARM_TIMEOFF4 }}</div>
+                    <div class="col-lg-4" id="csm_on">{{ indicAlarmws.ALARM_TIMEON4 }}</div>
+                    <div class="col-lg-4" id="csm_off">{{ indicAlarmws.ALARM_TIMEOFF4 }}</div>
                 </a>
                 <a :class="alarm_class5" id="ALARMA5" data-bs-toggle="modal" data-bs-target="#alarma5">
                     <i class="" id="cfrc">{{ indicAlarm.ALARM_CONT5 }}</i> 
                     <div class="col-lg-4">{{ indicAlarm.ALARM_NAME5 }}</div>
-                    <div class="col-lg-4" id="cfrc_on">{{ indicAlarm.ALARM_TIMEON5 }}</div>
-                    <div class="col-lg-4" id="cfrc_off">{{ indicAlarm.ALARM_TIMEOFF5 }}</div>
+                    <div class="col-lg-4" id="cfrc_on">{{ indicAlarmws.ALARM_TIMEON5 }}</div>
+                    <div class="col-lg-4" id="cfrc_off">{{ indicAlarmws.ALARM_TIMEOFF5 }}</div>
                 </a>
                 <a :class="alarm_class6" id="ALARMA6" data-bs-toggle="modal" data-bs-target="#alarma6">
                     <i class="" id="cgeo">{{ indicAlarm.ALARM_CONT6 }}</i> 
                     <div class="col-lg-4">{{ indicAlarm.ALARM_NAME6 }}</div>
-                    <div class="col-lg-4" id="cgeo_on">{{ indicAlarm.ALARM_TIMEON6 }}</div>
-                    <div class="col-lg-4" id="cgeo_off">{{ indicAlarm.ALARM_TIMEOFF6 }}</div>
+                    <div class="col-lg-4" id="cgeo_on">{{ indicAlarmws.ALARM_TIMEON6 }}</div>
+                    <div class="col-lg-4" id="cgeo_off">{{ indicAlarmws.ALARM_TIMEOFF6 }}</div>
                 </a>
                 <a :class="alarm_class7" id="ALARMA7" data-bs-toggle="modal" data-bs-target="#alarma7">
                     <i class="" id="cgeb">{{ indicAlarm.ALARM_CONT7 }}</i> 
                     <div class="col-lg-4">{{ indicAlarm.ALARM_NAME7 }}</div>
-                    <div class="col-lg-4" id="cgeb_on">{{ indicAlarm.ALARM_TIMEON7 }}</div>
-                    <div class="col-lg-4" id="cgeb_off">{{ indicAlarm.ALARM_TIMEOFF7 }}</div>
+                    <div class="col-lg-4" id="cgeb_on">{{ indicAlarmws.ALARM_TIMEON7 }}</div>
+                    <div class="col-lg-4" id="cgeb_off">{{ indicAlarmws.ALARM_TIMEOFF7 }}</div>
                 </a>
                 <a :class="alarm_class8" id="ALARMA8" data-bs-toggle="modal" data-bs-target="#alarma8">
                     <i class="" id="cfr">{{ indicAlarm.ALARM_CONT8 }}</i> 
                     <div class="col-lg-4">{{ indicAlarm.ALARM_NAME8 }}</div>
-                    <div class="col-lg-4" id="cfr_on">{{ indicAlarm.ALARM_TIMEON8 }}</div>
-                    <div class="col-lg-4" id="cfr_off">{{ indicAlarm.ALARM_TIMEOFF8 }}</div>
+                    <div class="col-lg-4" id="cfr_on">{{ indicAlarmws.ALARM_TIMEON8 }}</div>
+                    <div class="col-lg-4" id="cfr_off">{{ indicAlarmws.ALARM_TIMEOFF8 }}</div>
                 </a>
 
                 <!-- Pop Out Block Modal -->
@@ -123,7 +123,7 @@
                                     <div class="col-md-6 col-12 mb-2">
                                         <div class="form-group">
                                             <label class="form-label" for="ALARM_NAME1">Nombre</label>
-                                            <input type="text" id="ALARM_NAME1" class="form-control" v-model.trim="indicAlarm.ALARM_NAME1">
+                                            <input data-bs-toggle="popover" data-bs-placement="left" title="Aviso:" data-bs-content="Indica el nuevo nombre de la Alarma" type="text" id="ALARM_NAME1" class="form-control" v-model.trim="indicAlarm.ALARM_NAME1">
                                         </div>
                                     </div>
                                     <div class="form-group col-md-6 mb-2">
@@ -166,7 +166,7 @@
                                         <div class="col-md-6 col-12 mb-2">
                                             <div class="form-group">
                                                 <label class="form-label" for="ALARM_NAME2">Nombre</label>
-                                                <input type="text" id="ALARM_NAME2" class="form-control" v-model.trim="indicAlarm.ALARM_NAME2">
+                                                <input data-bs-toggle="popover" data-bs-placement="left" title="Aviso:" data-bs-content="Indica el nuevo nombre de la Alarma" type="text" id="ALARM_NAME2" class="form-control" v-model.trim="indicAlarm.ALARM_NAME2">
                                             </div>
                                         </div>
                                         
@@ -210,7 +210,7 @@
                                         <div class="col-md-6 col-12 mb-2">
                                             <div class="form-group">
                                                 <label class="form-label" for="ALARM_NAME3">Nombre</label>
-                                                <input type="text" id="ALARM_NAME3" class="form-control" v-model.trim="indicAlarm.ALARM_NAME3">
+                                                <input data-bs-toggle="popover" data-bs-placement="left" title="Aviso:" data-bs-content="Indica el nuevo nombre de la Alarma" type="text" id="ALARM_NAME3" class="form-control" v-model.trim="indicAlarm.ALARM_NAME3">
                                             </div>
                                         </div>
                                         
@@ -254,7 +254,7 @@
                                         <div class="col-md-6 col-12 mb-2">
                                             <div class="form-group">
                                                 <label class="form-label" for="ALARM_NAME4">Nombre</label>
-                                                <input type="text" id="ALARM_NAME4" class="form-control" v-model.trim="indicAlarm.ALARM_NAME4">
+                                                <input data-bs-toggle="popover" data-bs-placement="left" title="Aviso:" data-bs-content="Indica el nuevo nombre de la Alarma" type="text" id="ALARM_NAME4" class="form-control" v-model.trim="indicAlarm.ALARM_NAME4">
                                             </div>
                                         </div>
                                         
@@ -298,7 +298,7 @@
                                         <div class="col-md-6 col-12 mb-2">
                                             <div class="form-group">
                                                 <label class="form-label" for="ALARM_NAME5">Nombre</label>
-                                                <input type="text" id="ALARM_NAME5" class="form-control" v-model.trim="indicAlarm.ALARM_NAME5">
+                                                <input data-bs-toggle="popover" data-bs-placement="left" title="Aviso:" data-bs-content="Indica el nuevo nombre de la Alarma" type="text" id="ALARM_NAME5" class="form-control" v-model.trim="indicAlarm.ALARM_NAME5">
                                             </div>
                                         </div>
                                         
@@ -342,7 +342,7 @@
                                         <div class="col-md-6 col-12 mb-2">
                                             <div class="form-group">
                                                 <label class="form-label" for="ALARM_NAME6">Nombre</label>
-                                                <input type="text" id="ALARM_NAME6" class="form-control" v-model.trim="indicAlarm.ALARM_NAME6">
+                                                <input data-bs-toggle="popover" data-bs-placement="left" title="Aviso:" data-bs-content="Indica el nuevo nombre de la Alarma" type="text" id="ALARM_NAME6" class="form-control" v-model.trim="indicAlarm.ALARM_NAME6">
                                             </div>
                                         </div>
                                         
@@ -386,7 +386,7 @@
                                         <div class="col-md-6 col-12 mb-2">
                                             <div class="form-group">
                                                 <label class="form-label" for="ALARM_NAME7">Nombre</label>
-                                                <input type="text" id="ALARM_NAME7" class="form-control" v-model.trim="indicAlarm.ALARM_NAME7">
+                                                <input data-bs-toggle="popover" data-bs-placement="left" title="Aviso:" data-bs-content="Indica el nuevo nombre de la Alarma" type="text" id="ALARM_NAME7" class="form-control" v-model.trim="indicAlarm.ALARM_NAME7">
                                             </div>
                                         </div>
                                         
@@ -430,7 +430,7 @@
                                         <div class="col-md-6 col-12 mb-2">
                                             <div class="form-group">
                                                 <label class="form-label" for="ALARM_NAME8">Nombre</label>
-                                                <input type="text" id="ALARM_NAME8" class="form-control" v-model.trim="indicAlarm.ALARM_NAME8">
+                                                <input data-bs-toggle="popover" data-bs-placement="left" title="Aviso:" data-bs-content="Indica el nuevo nombre de la Alarma" type="text" id="ALARM_NAME8" class="form-control" v-model.trim="indicAlarm.ALARM_NAME8">
                                             </div>
                                         </div>
                                         
@@ -479,72 +479,72 @@ import Hero from "@/components/common/Hero.vue"
 
             const indicAlarm = ref({
                 //alarma1
-                ALARM_STATUS1: false,
+                //ALARM_STATUS1: false,
                 ALARM_LOGICA1: false,
-                ALARM_PIN1: 5, //14,16,17,18,25,26,27, buz32, botonintalarma34,35reset
+                //ALARM_PIN1: 5, //14,16,17,18,25,26,27, buz32, botonintalarma34,35reset
                 ALARM_NAME1: "ALARMA 1",
                 ALARM_TIMEON1: "",
                 ALARM_TIMEOFF1: "",
                 ALARM_CONT1: 0,
     
                 //alarma2
-                ALARM_STATUS2: false,
+                //ALARM_STATUS2: false,
                 ALARM_LOGICA2: false,
-                ALARM_PIN2: 14, //14,16,17,18,25,26,27, buz32, botonintalarma34,35reset
+                //ALARM_PIN2: 14, //14,16,17,18,25,26,27, buz32, botonintalarma34,35reset
                 ALARM_NAME2: "ALARMA 2",
                 ALARM_TIMEON2: "",
                 ALARM_TIMEOFF2: "",
                 ALARM_CONT2: 0,
     
                 //alarma3
-                ALARM_STATUS3: false,
+                //ALARM_STATUS3: false,
                 ALARM_LOGICA3: false,
-                ALARM_PIN3: 16, //14,16,17,18,25,26,27, buz32, botonintalarma34,35reset
+                //ALARM_PIN3: 16, //14,16,17,18,25,26,27, buz32, botonintalarma34,35reset
                 ALARM_NAME3: "ALARMA 3",
                 ALARM_TIMEON3: "",
                 ALARM_TIMEOFF3: "",
                 ALARM_CONT3: 0,
     
                 //alarma4
-                ALARM_STATUS4: false,
+                //ALARM_STATUS4: false,
                 ALARM_LOGICA4: false,
-                ALARM_PIN4: 17, //14,16,17,18,25,26,27, buz32, botonintalarma34,35reset
+                //ALARM_PIN4: 17, //14,16,17,18,25,26,27, buz32, botonintalarma34,35reset
                 ALARM_NAME4: "ALARMA 4",
                 ALARM_TIMEON4: "",
                 ALARM_TIMEOFF4: "",
                 ALARM_CONT4: 0,
     
                 //alarma5
-                ALARM_STATUS5: false,
+                //ALARM_STATUS5: false,
                 ALARM_LOGICA5: false,
-                ALARM_PIN5: 18, //14,16,17,18,25,26,27, buz32, botonintalarma34,35reset
+                //ALARM_PIN5: 18, //14,16,17,18,25,26,27, buz32, botonintalarma34,35reset
                 ALARM_NAME5: "ALARMA 5",
                 ALARM_TIMEON5: "",
                 ALARM_TIMEOFF5: "",
                 ALARM_CONT5: 0,
     
                 //alarma6
-                ALARM_STATUS6: false,
+                //ALARM_STATUS6: false,
                 ALARM_LOGICA6: false,
-                ALARM_PIN6: 25, //14,16,17,18,25,26,27, buz32, botonintalarma34,35reset
+                //ALARM_PIN6: 25, //14,16,17,18,25,26,27, buz32, botonintalarma34,35reset
                 ALARM_NAME6: "ALARMA 6",
                 ALARM_TIMEON6: "",
                 ALARM_TIMEOFF6: "",
                 ALARM_CONT6: 0,
     
                 //alarma7
-                ALARM_STATUS7: false,
+                //ALARM_STATUS7: false,
                 ALARM_LOGICA7: false,
-                ALARM_PIN7: 26, //14,16,17,18,25,26,27, buz32, botonintalarma34,35reset
+                //ALARM_PIN7: 26, //14,16,17,18,25,26,27, buz32, botonintalarma34,35reset
                 ALARM_NAME7: "ALARMA 7",
                 ALARM_TIMEON7: "",
                 ALARM_TIMEOFF7: "",
                 ALARM_CONT7: 0,
     
                 //alarma8
-                ALARM_STATUS8: false,
+                //ALARM_STATUS8: false,
                 ALARM_LOGICA8: false,
-                ALARM_PIN8: 27, //14,16,17,18,25,26,27, buz32, botonintalarma34,35reset
+                //ALARM_PIN8: 27, //14,16,17,18,25,26,27, buz32, botonintalarma34,35reset
                 ALARM_NAME8: "ALARMA 8",
                 ALARM_TIMEON8: "",
                 ALARM_TIMEOFF8: "",
@@ -624,11 +624,11 @@ import Hero from "@/components/common/Hero.vue"
                 if (datos.code == 1) {
                     indicAlarm.value = datos.data
                 } else {
-                    ToastMsgError(`"Error no son datos válidos"`, "check", 5000)
+                    ToastMsgError(`"Error no son datos válidos"`, "check", 7000)
                 }
             })
             .catch((error) => {
-                ToastMsgError(`Error : ${error}`, "check", 5000)
+                ToastMsgError(`Error : ${error}`, "check", 7000)
             })
             }
             //Método POST envio de los datos
@@ -648,8 +648,8 @@ import Hero from "@/components/common/Hero.vue"
                 .then((res) => res.json())
                 .then((datos) => {
                     if (datos.save) {
-                        ToastMsgSuccess(`"Configuración de alarma guardada correctamente"`, "check", 5000)
-                        reloadPage("alarmas", 5000)
+                        ToastMsgSuccess(`"Configuración de alarma guardada correctamente"`, "check", 7000)
+                        reloadPage("alarmas", 7000)
                     }
                 })
                 .catch((error) => {
@@ -660,28 +660,28 @@ import Hero from "@/components/common/Hero.vue"
             //pone en rojo si se alarma
             // Computadas
             const alarm_class1 = computed(() => {
-            return indicAlarm.value.ALARM_STATUS1 ? "btn block-header bg-xeco-light mt-1":"btn block-header btn-danger mt-1"
+            return indicAlarmws.value.ALARM_STATUS1 ? "btn block-header bg-xeco-light mt-1":"btn block-header btn-danger mt-1"
             })
             const alarm_class2 = computed(() => {
-            return indicAlarm.value.ALARM_STATUS2 ? "btn block-header bg-xeco-light mt-1":"btn block-header btn-danger mt-1"
+            return indicAlarmws.value.ALARM_STATUS2 ? "btn block-header bg-xeco-light mt-1":"btn block-header btn-danger mt-1"
             })
             const alarm_class3 = computed(() => {
-            return indicAlarm.value.ALARM_STATUS3 ? "btn block-header bg-xeco-light mt-1":"btn block-header btn-danger mt-1"
+            return indicAlarmws.value.ALARM_STATUS3 ? "btn block-header bg-xeco-light mt-1":"btn block-header btn-danger mt-1"
             })
             const alarm_class4 = computed(() => {
-            return indicAlarm.value.ALARM_STATUS4 ? "btn block-header bg-xeco-light mt-1":"btn block-header btn-danger mt-1"
+            return indicAlarmws.value.ALARM_STATUS4 ? "btn block-header bg-xeco-light mt-1":"btn block-header btn-danger mt-1"
             })
             const alarm_class5 = computed(() => {
-            return indicAlarm.value.ALARM_STATUS5 ? "btn block-header bg-xeco-light mt-1":"btn block-header btn-danger mt-1"
+            return indicAlarmws.value.ALARM_STATUS5 ? "btn block-header bg-xeco-light mt-1":"btn block-header btn-danger mt-1"
             })
             const alarm_class6 = computed(() => {
-            return indicAlarm.value.ALARM_STATUS6 ? "btn block-header bg-xeco-light mt-1":"btn block-header btn-danger mt-1"
+            return indicAlarmws.value.ALARM_STATUS6 ? "btn block-header bg-xeco-light mt-1":"btn block-header btn-danger mt-1"
             })
             const alarm_class7 = computed(() => {
-            return indicAlarm.value.ALARM_STATUS7 ? "btn block-header bg-xeco-light mt-1":"btn block-header btn-danger mt-1"
+            return indicAlarmws.value.ALARM_STATUS7 ? "btn block-header bg-xeco-light mt-1":"btn block-header btn-danger mt-1"
             })
             const alarm_class8 = computed(() => {
-            return indicAlarm.value.ALARM_STATUS8 ? "btn block-header bg-xeco-light mt-1":"btn block-header btn-danger mt-1"
+            return indicAlarmws.value.ALARM_STATUS8 ? "btn block-header bg-xeco-light mt-1":"btn block-header btn-danger mt-1"
             })
 
             const alarm_text1 = computed(() =>{
@@ -714,42 +714,42 @@ import Hero from "@/components/common/Hero.vue"
             ,ALARM_STATUS5,ALARM_CONT5,ALARM_STATUS6,ALARM_CONT6,ALARM_STATUS7,ALARM_CONT7,ALARM_STATUS8,ALARM_CONT8
             ,ALARM_TIMEON1,ALARM_TIMEON2,ALARM_TIMEON3,ALARM_TIMEON4,ALARM_TIMEON5,ALARM_TIMEON6,ALARM_TIMEON7,ALARM_TIMEON8
             ,ALARM_TIMEOFF1,ALARM_TIMEOFF2,ALARM_TIMEOFF3,ALARM_TIMEOFF4,ALARM_TIMEOFF5,ALARM_TIMEOFF6,ALARM_TIMEOFF7,ALARM_TIMEOFF8
-            ,temp_cpu,tempC,humedad}) => {
+            ,t_cpu,tC,hum}) => {
                 indicAlarm.value["ALARM_STATUS1"] = ALARM_STATUS1 
                 indicAlarm.value["ALARM_CONT1"] = ALARM_CONT1
-                indicAlarm.value["ALARM_TIMEON1"] = ALARM_TIMEON1
-                indicAlarm.value["ALARM_TIMEOFF1"] = ALARM_TIMEOFF1
+                //indicAlarm.value["ALARM_TIMEON1"] = ALARM_TIMEON1
+                //indicAlarm.value["ALARM_TIMEOFF1"] = ALARM_TIMEOFF1
                 indicAlarm.value["ALARM_STATUS2"] = ALARM_STATUS2 
                 indicAlarm.value["ALARM_CONT2"] = ALARM_CONT2
-                indicAlarm.value["ALARM_TIMEON2"] = ALARM_TIMEON2
-                indicAlarm.value["ALARM_TIMEOFF2"] = ALARM_TIMEOFF2
+                //indicAlarm.value["ALARM_TIMEON2"] = ALARM_TIMEON2
+                //indicAlarm.value["ALARM_TIMEOFF2"] = ALARM_TIMEOFF2
                 indicAlarm.value["ALARM_STATUS3"] = ALARM_STATUS3 
                 indicAlarm.value["ALARM_CONT3"] = ALARM_CONT3
-                indicAlarm.value["ALARM_TIMEON3"] = ALARM_TIMEON3
-                indicAlarm.value["ALARM_TIMEOFF3"] = ALARM_TIMEOFF3
+                //indicAlarm.value["ALARM_TIMEON3"] = ALARM_TIMEON3
+                //indicAlarm.value["ALARM_TIMEOFF3"] = ALARM_TIMEOFF3
                 indicAlarm.value["ALARM_STATUS4"] = ALARM_STATUS4 
                 indicAlarm.value["ALARM_CONT4"] = ALARM_CONT4
-                indicAlarm.value["ALARM_TIMEON4"] = ALARM_TIMEON4
-                indicAlarm.value["ALARM_TIMEOFF4"] = ALARM_TIMEOFF4
+                //indicAlarm.value["ALARM_TIMEON4"] = ALARM_TIMEON4
+                //indicAlarm.value["ALARM_TIMEOFF4"] = ALARM_TIMEOFF4
                 indicAlarm.value["ALARM_STATUS5"] = ALARM_STATUS5 
                 indicAlarm.value["ALARM_CONT5"] = ALARM_CONT5
-                indicAlarm.value["ALARM_TIMEON5"] = ALARM_TIMEON5
-                indicAlarm.value["ALARM_TIMEOFF5"] = ALARM_TIMEOFF5
+                //indicAlarm.value["ALARM_TIMEON5"] = ALARM_TIMEON5
+                //indicAlarm.value["ALARM_TIMEOFF5"] = ALARM_TIMEOFF5
                 indicAlarm.value["ALARM_STATUS6"] = ALARM_STATUS6 
                 indicAlarm.value["ALARM_CONT6"] = ALARM_CONT6
-                indicAlarm.value["ALARM_TIMEON6"] = ALARM_TIMEON6
-                indicAlarm.value["ALARM_TIMEOFF6"] = ALARM_TIMEOFF6
+                //indicAlarm.value["ALARM_TIMEON6"] = ALARM_TIMEON6
+                //indicAlarm.value["ALARM_TIMEOFF6"] = ALARM_TIMEOFF6
                 indicAlarm.value["ALARM_STATUS7"] = ALARM_STATUS7 
                 indicAlarm.value["ALARM_CONT7"] = ALARM_CONT7
-                indicAlarm.value["ALARM_TIMEON7"] = ALARM_TIMEON7
-                indicAlarm.value["ALARM_TIMEOFF7"] = ALARM_TIMEOFF7
+                //indicAlarm.value["ALARM_TIMEON7"] = ALARM_TIMEON7
+                //indicAlarm.value["ALARM_TIMEOFF7"] = ALARM_TIMEOFF7
                 indicAlarm.value["ALARM_STATUS8"] = ALARM_STATUS8 
                 indicAlarm.value["ALARM_CONT8"] = ALARM_CONT8
-                indicAlarm.value["ALARM_TIMEON8"] = ALARM_TIMEON8
-                indicAlarm.value["ALARM_TIMEOFF8"] = ALARM_TIMEOFF8
-                indicAlarm.value["temp_cpu"] = temp_cpu
-                indicAlarm.value["tempC"] = tempC
-                indicAlarm.value["humedad"] = humedad
+                //indicAlarm.value["ALARM_TIMEON8"] = ALARM_TIMEON8
+                //indicAlarm.value["ALARM_TIMEOFF8"] = ALARM_TIMEOFF8
+                //indicAlarm.value["t_cpu"] = t_cpu
+                //indicAlarm.value["tC"] = tC
+                //indicAlarm.value["hum"] = hum
             })
             
     
