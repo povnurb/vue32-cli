@@ -28,6 +28,7 @@
                     <div class="block-options">
                         <div class="fs-1 fw-bold">{{indicAlarmws.tC}}°C</div>
                         <div class="text-muted mb-3">Temperatura Sala</div>
+                        Min. <span>{{indicAlarmws.tmin}}</span> ° C - <span class="text-danger">Max. </span><span class="text-danger">{{indicAlarmws.tmax}}</span><span class="text-danger">° C</span>
                     </div>
                     </div>
                     
@@ -129,8 +130,8 @@
                                     <div class="form-group col-md-6 mb-2">
                                         <div class="form-group">
                                             <label class="form-label" for="ALARM_LOGICA1">Lógica del PIN D5</label>
-                                            <div data-bs-toggle="popover" data-bs-placement="right" title="Aviso:" data-bs-content="Este PIN no tiene habilitada esta funcionalidad por cuestiones de diseño, solo se activa con nivel bajo (Tierra)." class="form-check form-switch">
-                                                <input class="form-check-input" id="ALARM_LOGICA1" type="checkbox" v-model="indicAlarm.ALARM_LOGICA1" @click="logica1" disabled/>
+                                            <div class="form-check form-switch">
+                                                <input class="form-check-input" id="ALARM_LOGICA1" type="checkbox" v-model="indicAlarm.ALARM_LOGICA1" @click="logica1"/>
                                                 <label class="form-check-label">{{ alarm_text1 }}</label>
                                             </div>
                                         </div>
@@ -454,7 +455,7 @@
                         </div>
                         </div>
                     </div>
-                </div>
+                </div><code>EL boton D34 activa las alarmas</code>
             </div>
     </main>
 </template>
@@ -751,8 +752,7 @@ import Hero from "@/components/common/Hero.vue"
                 //indicAlarm.value["tC"] = tC
                 //indicAlarm.value["hum"] = hum
             })
-            
-    
+                        
             return {
                 handleSubmit,
                 indicAlarmws,

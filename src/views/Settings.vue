@@ -123,7 +123,7 @@
                                                 <div class="content-heading">Firmware y FileSystem</div>
                                                 <div class="row push">
                                                     <div class="col-12">
-                                                        <p class="text-muted">Use este Botón para actualizar el Firmware o el FileSystem del Dispositivo.</p>
+                                                        <p class="text-muted">Use este Botón para actualizar el Firmware o el FileSystem del Dispositivo.</p><code>firmware.bin</code>
                                                         <div class="input-group mb-3">
                                                             <label class="input-group-text" for="inputFileFirmware"><i class="fa fa-upload"></i></label>
                                                             <input type="file" accept="application/octet-stream" class="form-control" id="inputFileFirmware">

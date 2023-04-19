@@ -21,7 +21,7 @@
                                         <div class="form-group">
                                             <label class="form-label" for="wifi_ssid">SSID</label>
                                             <input type="text" id="wifi_ssid" class="form-control" placeholder="iotmaster" v-model.trim="wifi.wifi_ssid" />
-                                        </div>
+                                        </div><code>No se conecta a WIFI con seguridad WEP</code>
                                     </div>
                                     <div class="col-12 mb-3">
                                         <div class="form-group">

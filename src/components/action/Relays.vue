@@ -68,9 +68,9 @@
                         <fieldset class="form-group">
                             <label class="form-label" for="relay_pin">ESP32 PIN</label>
                             <select class="form-select" id="relay_pin" v-model.number="action.RELAY_PIN">
-                                <option value="33">GPIO 33 Relay</option>
                                 <option value="15">GPIO 15 Activar Alarmas Remotas</option>
                                 <option value="32">GPIO 32 Zumbador</option>
+                                <option value="33">GPIO 33 Relay</option>
                             </select>
                         </fieldset>
                     </div>                   
@@ -112,9 +112,9 @@ export default {
         const action = ref({
             RELAY_STATUS: false,
             RELAY_LOGICA: 0,
-            RELAY_PIN: 33,  //relevador
+            RELAY_PIN: 15,  //relevador 33
             RELAY_NAME: "RELAY 01",
-            RELAY_DESCRIPTION: "Control de Luces"
+            RELAY_DESCRIPTION: "Control de Alarmas Remotas"
         })
 
         const relayOnOff = ()=>{
