@@ -20,7 +20,7 @@
                                         <div class="form-group">
                                             <label class="form-label" for="time_ajuste">Ajustar Fecha y Hora:</label>
                                             <div class="form-check form-switch">
-                                                <input class="form-check-input" id="time_ajuste" type="checkbox" v-model="time.time_ajuste" disabled>
+                                                <input class="form-check-input" id="time_ajuste" type="checkbox" v-model="time.time_ajuste">
                                                 <label class="form-check-label" for="time_ajuste">{{time_ajuste}}</label><code> (Automatico: solo con acceso a internet)</code>
                                             </div>
                                         </div>

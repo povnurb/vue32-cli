@@ -9,7 +9,7 @@
                             <span class="opacity-75">x</span>
                         </span>
                         <span class="smini-hidden">
-                            CTRL<span class="opacity-75"> IGL-PTTI</span>
+                            CTRL <span class="opacity-75"> {{indicAlarm.ctral}}</span>
                         </span>
                     </router-link>
                     <!-- END Logo -->
@@ -98,11 +98,12 @@
 
 import { computed } from 'vue'
 import useApp from '@/composables/useApp'
+import { ref, watch} from 'vue'
 export default {
     name: "Sidebar",
     setup(){
-        const {swal, command, route, deleteSession} = useApp()
-
+        const {swal, command, route, deleteSession, indicAlarmws} = useApp()
+        const indicAlarm = ref({ctral: "Sin dato"})
         const showAlertConfirm = (title, text, icon, funct) => {
             swal({
                 title: title,
@@ -123,7 +124,7 @@ export default {
                 }
             })
     }
-
+    
         const index = computed(()=>{
             return route.path == '/'? 'nav-main-link active' : 'nav-main-link'
         })
@@ -145,7 +146,19 @@ export default {
         const action = computed(()=>{
             return route.path == '/action'? 'nav-main-link active' : 'nav-main-link'
         })
+
+        watch(() => indicAlarmws.value,
+            ({ ctral}) => {
+                indicAlarm.value["ctral"] = ctral 
+            })
+
+
+
+
+
         return {
+            indicAlarmws,
+            indicAlarm,
             index,
             alarmas,
             wifi,

@@ -139,7 +139,7 @@
                                     <div class="mb-2 mt-2">
                                         <button type="submit" class="btn btn-alt-success me-1">
                                             <i class="fa fa-fw fa-save opacity-50 me-1"></i> Guardar
-                                        </button><code>Nota: Esta Alarma no se Activa de Manera Remota</code>
+                                        </button>
                                     </div>
                                 </div>
                             </form>
@@ -465,11 +465,9 @@
 import Hero from "@/components/common/Hero.vue"
     import useApp from "@/composables/useApp"
     import { ref, computed, onMounted, watch} from 'vue'
-    export default{
-        
+    export default{  
         name: "Alarmas",
         components: { Hero },
-
         setup() {
             const page = "Alarmas"
             const title = "Visualización de Alarmas"
@@ -709,7 +707,7 @@ import Hero from "@/components/common/Hero.vue"
             const alarm_text8 = computed(() =>{
             return indicAlarm.value.ALARM_LOGICA8 ? "Invertida (Se activa con Voltaje)":"Normal (Se activa con Tierra)"
             })
-            
+            // estas alarmas me llegan por wl websocket
             watch(() => indicAlarmws.value,
             ({ ALARM_STATUS1,ALARM_CONT1,ALARM_STATUS2,ALARM_CONT2,ALARM_STATUS3,ALARM_CONT3,ALARM_STATUS4,ALARM_CONT4
             ,ALARM_STATUS5,ALARM_CONT5,ALARM_STATUS6,ALARM_CONT6,ALARM_STATUS7,ALARM_CONT7,ALARM_STATUS8,ALARM_CONT8
