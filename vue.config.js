@@ -1,4 +1,5 @@
 const { defineConfig } = require('@vue/cli-service')
+
 module.exports = defineConfig({
   filenameHashing: false,
   productionSourceMap: false,
@@ -22,11 +23,11 @@ module.exports = defineConfig({
     config
         .plugin('html')
         .tap(args => {
-          args[0].title = 'COMCoatza | PTTI IGL'
+          args[0].title = 'Dispositivo'
           return args
         })
   }
-})
+})  
 /*module.exports = {
   devServer: {
     proxy: 'http://localhost:4000'

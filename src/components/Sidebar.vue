@@ -9,7 +9,7 @@
                             <span class="opacity-75">x</span>
                         </span>
                         <span class="smini-hidden">
-                            CTRL <span class="opacity-75"> {{indicAlarm.ctral}}</span>
+                            <span class="opacity-75"> {{indicAlarm.ctral}}</span>
                         </span>
                     </router-link>
                     <!-- END Logo -->
@@ -103,7 +103,7 @@ export default {
     name: "Sidebar",
     setup(){
         const {swal, command, route, deleteSession, indicAlarmws} = useApp()
-        const indicAlarm = ref({ctral: "Sin dato"})
+        const indicAlarm = ref({ctral: "¡Bienvenido!"})
         const showAlertConfirm = (title, text, icon, funct) => {
             swal({
                 title: title,

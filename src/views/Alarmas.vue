@@ -455,8 +455,11 @@
                         </div>
                         </div>
                     </div>
-                </div><code>EL boton D34 activa las alarmas</code>
+                </div>
+                <code>EL boton D34 en dispositivo activa todas las alarmas</code>
+                
             </div>
+            
     </main>
 </template>
 
@@ -548,6 +551,7 @@ import Hero from "@/components/common/Hero.vue"
                 ALARM_TIMEON8: "",
                 ALARM_TIMEOFF8: "",
                 ALARM_CONT8: 0,
+
                 })
             const logica1 = () =>{
                 //enviar datos de la logica por Ws
@@ -713,7 +717,7 @@ import Hero from "@/components/common/Hero.vue"
             ,ALARM_STATUS5,ALARM_CONT5,ALARM_STATUS6,ALARM_CONT6,ALARM_STATUS7,ALARM_CONT7,ALARM_STATUS8,ALARM_CONT8
             ,ALARM_TIMEON1,ALARM_TIMEON2,ALARM_TIMEON3,ALARM_TIMEON4,ALARM_TIMEON5,ALARM_TIMEON6,ALARM_TIMEON7,ALARM_TIMEON8
             ,ALARM_TIMEOFF1,ALARM_TIMEOFF2,ALARM_TIMEOFF3,ALARM_TIMEOFF4,ALARM_TIMEOFF5,ALARM_TIMEOFF6,ALARM_TIMEOFF7,ALARM_TIMEOFF8
-            ,t_cpu,tC,hum}) => {
+            ,t_cpu,tC,hum,ctral}) => {
                 indicAlarm.value["ALARM_STATUS1"] = ALARM_STATUS1 
                 indicAlarm.value["ALARM_CONT1"] = ALARM_CONT1
                 //indicAlarm.value["ALARM_TIMEON1"] = ALARM_TIMEON1
@@ -749,6 +753,7 @@ import Hero from "@/components/common/Hero.vue"
                 //indicAlarm.value["t_cpu"] = t_cpu
                 //indicAlarm.value["tC"] = tC
                 //indicAlarm.value["hum"] = hum
+                //indicAlarm.value["ctral"] = ctral 
             })
                         
             return {
