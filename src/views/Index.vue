@@ -3,7 +3,7 @@
     <!-- Hero -->
     <Hero :title="title" :page="page" />
     <!-- END Hero -->
-    <!-- Page Content -->
+    <!-- Page Contenido -->
     <div class="content">
         <!-- Panel -->
         <div class="row">
